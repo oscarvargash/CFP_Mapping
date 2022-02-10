@@ -8,7 +8,7 @@ setwd("~/CFP_Mapping")
 ## Download following packages
 ```
 install.packages(c("dpylr","rgbif", "purrr", "readr", "taxize", "mapproj", 
-                   "raster", "elevatr", "rgdal", "ggplot2", "ggmap", "CoordinateCleaner", 
+                   "raster", "elevatr", "rgdal", "ggplot2", "ggmap", 
                    "rnaturalearthdata", "rangeBuilder"))
 ```
 ## We must install R-Tools before Terra can be installed and unpacked
@@ -19,9 +19,10 @@ install.packages("jsonlite", type = "source")
 ```
 ## Coordinate Cleaner and Terra can now be installed
 ```
+install.packages("terra")
+library(terra)
 install.packages("CoordinateCleaner")
 library(CoordinateCleaner)
-library(terra)
 ```
 ## Load following packages
 ```
@@ -95,11 +96,11 @@ plot(geodata2$decimalLongitude, geodata2$decimalLatitude)
 
 ## Isolate individual species occurrences (replace example & "Genus species" where appropriate)
 ```
-Galium_clementis<- geodata2 %>% filter(species == "Galium clementis")
+Genus_species<- geodata2 %>% filter(species == "Genus species")
 ```
 ## Plotting out uncleaned data to get coordinate frame
 ```
-plot(Galium_clementis$decimalLongitude, Galium_clementis$decimalLatitude)
+plot(Genus_species$decimalLongitude, Genus_species$decimalLatitude)
 ```
 ## Build a initial base map 
 ```
@@ -108,9 +109,10 @@ ggmap(basemap)
 ```
 ## plot data over basemap of CFP
 ```
-ggmap(basemap2) + geom_point(data = Galium_clementis, aes(x=decimalLongitude, y=decimalLatitude, color=species))
+ggmap(basemap2) + geom_point(data = Genus_speies, aes(x=decimalLongitude, y=decimalLatitude, color=species))
 ```
 ## Building second base map of average range of data
+### This will change for every species
 ```
 basemap2 <-  get_map(location = c(-122.5, 35.5, -121, 37), zoom = 8)
 ggmap(basemap2)
@@ -118,7 +120,7 @@ ggmap(basemap2)
 
 # Beginning of coordinate cleaning
 ```
-Galium_clementis_example <- clean_coordinates(x = Galium_clementis, 
+Genus_species_example <- clean_coordinates(x = Genus_species, 
                                         lon = "decimalLongitude", 
                                         lat = "decimalLatitude",
                                         countries = "countryCode",
@@ -132,31 +134,31 @@ Galium_clementis_example <- clean_coordinates(x = Galium_clementis,
 ```
 ## plotting data with flags removed over basemap2
 ```
-ggmap(basemap2) + geom_point(data = Galium_clementis_example, aes(x=decimalLongitude, y=decimalLatitude, color=species, size = 9))
+ggmap(basemap2) + geom_point(data = Genus_species_example, aes(x=decimalLongitude, y=decimalLatitude, color=species, size = 9))
 ```
 ## If you'd like to download the species distribution map directly
 ```
-ggsave(filename = "Galium_clementis_distribuition.pdf")
+ggsave(filename = "Genus_species_distribuition.pdf")
 ```
 ### Probably need to filter through occurrences manually to remove any outliers remaining
 
 # Beginning on Polygon work
 ```
-Galium_clementis_Poly_1 <- getDynamicAlphaHull(Galium_clementis, fraction = 0.95, partCount = 4, buff = 10000, initialAlpha = 3,
+Genus_species_Poly_1 <- getDynamicAlphaHull(Genus_species, fraction = 0.95, partCount = 4, buff = 10000, initialAlpha = 3,
                                     coordHeaders = c('decimalLongitude', 'decimalLatitude'), clipToCoast = 'terrestrial',
                                     proj = "+proj=longlat +datum=WGS84", alphaIncrement = 1, verbose = TRUE)
 ```
 ## Plot polygon  
 ```
-plot(Galium_clementis_Poly_1[[1]], col=transparentColor('dark green', 0.5), border = NA) 
+plot(Genus_species_Poly_1[[1]], col=transparentColor('dark green', 0.5), border = NA) 
 ```
 ## Plot data points onto polygon
 ```
-points(Galium_clementis[,c('decimalLongitude','decimalLatitude')], cex = 0.5, pch = 3)
+points(Genus_species[,c('decimalLongitude','decimalLatitude')], cex = 0.5, pch = 3)
 ```
 
 # Calculate the area of our species distribution in Kilometers
 ```
-Galium_clementis_Area <- area(Galium_clementis_Poly_1[[1]]) /1000000
-Galium_clementis_Area
+Genus_species_Area <- area(Genus_species_Poly_1[[1]]) /1000000
+Genus_species_Area
 ```
