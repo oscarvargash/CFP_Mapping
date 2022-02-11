@@ -5,17 +5,37 @@
 getwd()
 setwd("~/CFP_Mapping") 
 ```
-## Download following packages
+## Packages
 ```
 install.packages(c("dpylr","rgbif", "purrr", "readr", "taxize", "mapproj", 
                    "raster", "elevatr", "rgdal", "ggplot2", "ggmap", 
-                   "rnaturalearthdata", "rangeBuilder"))
+                   "rnaturalearthdata", "rangeBuilder","CoordinateCleaner"))
 ```
-## We must install R-Tools before Terra can be installed and unpacked
+## Load Library
 ```
+library(dplyr)
+library(purrr)
+library(readr)  
+library(magrittr)
+library(rgbif)
+library(taxize)
+library(mapproj)
+library(raster)
+library(elevatr)
+library(rgdal)
+library(ggplot2)
+library(ggmap)
+library(CoordinateCleaner)
+library(rnaturalearth)
+library(rangeBuilder)
+```
+## If you ran into an issue with the package "CoordinatClear" download and install RTools
+### [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
+### After installation is complete, you need to perform one more step to be able to compile R packages: we put the location of the Rtools make utilities (bash, make, etc) on the PATH. The easiest way to do so is by creating a text file .Renviron in your Documents folder which contains the following line:
+
 write('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', file = "~/.Renviron", append = TRUE)
 Sys.which("make")
-install.packages("jsonlite", type = "source")
+install.packages("terra", type = "source")
 ```
 ## Coordinate Cleaner and Terra can now be installed
 ```
