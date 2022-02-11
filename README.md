@@ -38,7 +38,7 @@ Step 3. Save the file to your documents.
 
 Step 4. Restart R
 
-Step 5. Run the following lines one in order and one at a time.
+Step 5. Run the following lines in order and one at a time. This may take several minutes.
 ```
 write('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', file = "~/.Renviron", append = TRUE)
 Sys.which("make")
