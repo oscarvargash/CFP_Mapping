@@ -30,11 +30,11 @@ library(rnaturalearth)
 library(rangeBuilder)
 ```
 ## If you ran into an issue with the package "CoordinateClear" follow these steps.
-### Step 1. Download and instal [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
-### Step 2. Create a txt. file named " .Reviron ".
-### Step 3. Save the file to your documents.
-### Step 4. Restart R
-### Step 5. Run the following lines one in order and one at a time.
+Step 1. Download and instal [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
+Step 2. Create a txt. file named " .Reviron ".
+Step 3. Save the file to your documents.
+Step 4. Restart R
+Step 5. Run the following lines one in order and one at a time.
 ```
 write('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', file = "~/.Renviron", append = TRUE)
 Sys.which("make")
