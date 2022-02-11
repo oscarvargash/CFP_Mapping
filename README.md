@@ -33,7 +33,7 @@ library(rangeBuilder)
 ### Link to: [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
 ### After installation is complete, you need to perform one more step to be able to compile R packages: we put the location of the Rtools make utilities (bash, make, etc) on the PATH. The easiest way to do so is by creating a text file .Renviron in your Documents folder which contains the following line:
 
-###Create a txt. file named " .Reviron" and save that file within your documnets
+### Create a txt. file named " .Reviron" and save that file within your documnets
 ```
 write('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', file = "~/.Renviron", append = TRUE)
 Sys.which("make")
