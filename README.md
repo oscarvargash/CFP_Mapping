@@ -33,34 +33,18 @@ library(rangeBuilder)
 ### [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
 ### After installation is complete, you need to perform one more step to be able to compile R packages: we put the location of the Rtools make utilities (bash, make, etc) on the PATH. The easiest way to do so is by creating a text file .Renviron in your Documents folder which contains the following line:
 
+###Create a txt. file named " .Reviron" and save that file within your documnets
+```
 write('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', file = "~/.Renviron", append = TRUE)
 Sys.which("make")
 install.packages("terra", type = "source")
 ```
-## Coordinate Cleaner and Terra can now be installed
+## Coordinate Cleaner and Terra should be updated
 ```
 install.packages("terra")
 library(terra)
 install.packages("CoordinateCleaner")
 library(CoordinateCleaner)
-```
-## Load following packages
-```
-library(dplyr)
-library(purrr)
-library(readr)  
-library(magrittr)
-library(rgbif)
-library(taxize)
-library(mapproj)
-library(raster)
-library(elevatr)
-library(rgdal)
-library(ggplot2)
-library(ggmap)
-library(CoordinateCleaner)
-library(rnaturalearth)
-library(rangeBuilder)
 ```
 ## Load species table csv from WD folder, and assign as 'data'
 ```
