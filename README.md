@@ -29,9 +29,22 @@ library(CoordinateCleaner)
 library(rnaturalearth)
 library(rangeBuilder)
 ```
-## If you ran into an issue with the package "CoordinateClear" download and install RTools
-### Link to: [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
-### After installation is complete, you need to perform one more step to be able to compile R packages: we put the location of the Rtools make utilities (bash, make, etc) on the PATH. The easiest way to do so is by creating a text file .Renviron in your Documents folder which contains the following line:
+## If you ran into an issue with the package "CoordinateClear" follow these steps.
+### Step 1. Download and instal [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
+### Step 2. Create a txt. file named " .Reviron ".
+### Step 3. Save the file to your documents.
+### Step 4. Restart R
+### Step 5. Run the following lines one in order and one at a time.
+```
+write('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', file = "~/.Renviron", append = TRUE)
+Sys.which("make")
+install.packages("terra", type = "source")
+```
+### This should have updated your "terra" packages
+To check this run
+```
+library(CoordinateCleaner)
+```
 
 ### Create a txt. file named " .Reviron" and save that file within your documnets
 ```
