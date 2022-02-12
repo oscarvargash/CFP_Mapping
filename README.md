@@ -33,7 +33,7 @@ library(rangeBuilder)
 ## If you ran into an issue with the package "CoordinateClear" follow these steps.
 Step 1. Download and instal [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
 
-Step 2. Create a txt. file named " .Reviron ".
+Step 2. Create a txt. file named " .Renviron ".
 
 Step 3. Save the file to your documents.
 
