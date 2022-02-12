@@ -105,7 +105,7 @@ plot(geodata2$decimalLongitude, geodata2$decimalLatitude)
 
 # Beginning of individual spp cleaning
 
-## Isolate individual species occurrences (replace example & "Genus species" where appropriate)
+### Isolate individual species occurrences (replace example & "Genus species" where appropriate)
 This will filter our data for a specific speices.
 Example,(Krameria_erecta<- geodata2 %>% filter(species == "Krameria erecta")
 ```
@@ -125,7 +125,7 @@ ggmap(basemap)
 ggmap(basemap2) + geom_point(data = Genus_speies, aes(x=decimalLongitude, y=decimalLatitude, color=species))
 ```
 ## Building second base map of average range of data
-### This will change for every species
+This will change for every species
 ```
 basemap2 <-  get_map(location = c(-122.5, 35.5, -121, 37), zoom = 8)
 ggmap(basemap2)
