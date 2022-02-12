@@ -49,23 +49,12 @@ To check this run
 ```
 library(CoordinateCleaner)
 ```
+The package should be update and no error message should appear
 
-### Create a txt. file named " .Reviron" and save that file within your documnets
-```
-write('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', file = "~/.Renviron", append = TRUE)
-Sys.which("make")
-install.packages("terra", type = "source")
-```
-## Coordinate Cleaner and Terra should be updated
-```
-install.packages("terra")
-library(terra)
-install.packages("CoordinateCleaner")
-library(CoordinateCleaner)
-```
 ## Load species table csv from WD folder, and assign as 'data'
+This file is from The Global Biodiversity Information Facility (GBIF) and it quite large
 ```
-data <- read.csv("0000436-210914110416597_geo.csv") 
+data <- read.csv("0000436-210914110416597.csv") 
 ```
 ## Assign value to our new gbif file
 ```
