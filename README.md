@@ -6,6 +6,7 @@ getwd()
 setwd("~/CFP_Mapping") 
 ```
 ## Packages
+To install the package we neet to type:
 ```
 install.packages(c("dpylr","rgbif", "purrr", "readr", "taxize", "mapproj", 
                    "raster", "elevatr", "rgdal", "ggplot2", "ggmap", 
@@ -105,6 +106,8 @@ plot(geodata2$decimalLongitude, geodata2$decimalLatitude)
 # Beginning of individual spp cleaning
 
 ## Isolate individual species occurrences (replace example & "Genus species" where appropriate)
+This will filter our data for a specific speices.
+Example,(Krameria_erecta<- geodata2 %>% filter(species == "Krameria erecta")
 ```
 Genus_species<- geodata2 %>% filter(species == "Genus species")
 ```
