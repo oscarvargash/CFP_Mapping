@@ -53,6 +53,15 @@ library(CoordinateCleaner)
 The package should be update and no error message should appear
 
 ## Load species table csv from WD folder, and assign as 'data'
+Now we need to download our list of species.
+[Species List](https://docs.google.com/spreadsheets/d/17WbYpslUYJon8NQS3xu7AoEDRZVxmHHp/edit?usp=sharing&ouid=101951801409981981542&rtpof=true&sd=true)
+Once downoload we need to load the file into R
+example (data <- read.csv("C:/Users/Cam/Desktop/BOT_499/CFP_Online.xlsx") 
+
+```
+data <- read.csv("location of folder/CFP_Online.xlsx") 
+```
+
 This file is from The Global Biodiversity Information Facility (GBIF) and it quite large
 ```
 data <- read.csv("0000436-210914110416597.csv") 
