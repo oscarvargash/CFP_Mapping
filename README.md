@@ -1,9 +1,15 @@
 # CFP_Mapping
 
 ## Set working directory 
+Setting up your workplace is important when it comes to organization and accessing necessary files. 
+setwd() will set your working director
+Example: setwd("C:/Users/Cam/Desktop/BOT_499")
+```
+setwd("~/CFP_Mapping") 
+```
+getwd() will show you which director you are currently using
 ```
 getwd()
-setwd("~/CFP_Mapping") 
 ```
 ## Packages
 To install the package we neet to type:
@@ -30,7 +36,9 @@ library(CoordinateCleaner)
 library(rnaturalearth)
 library(rangeBuilder)
 ```
-## If you ran into an issue with the package "CoordinateClear" follow these steps.
+## If you ran into an issue with the package "CoordinateClear" and "terra" not being update, follow these steps.
+The error seems to occur due to a older verison of "terra" being installed.
+
 Step 1. Download and instal [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
 
 Step 2. Create a txt. file named " .Renviron ".
