@@ -3,6 +3,7 @@
 ## Set working directory 
 Setting up your workplace is important when it comes to organization and accessing necessary files. 
 setwd() will set your working director
+
 Example: setwd("C:/Users/Cam/Desktop/BOT_499")
 ```
 setwd("~/CFP_Mapping") 
@@ -67,14 +68,16 @@ The package should be update and no error message should appear
 ## Load species table csv from WD folder, and assign as 'data'
 Now we need to download our list of species.
 [Species List](https://docs.google.com/spreadsheets/d/17WbYpslUYJon8NQS3xu7AoEDRZVxmHHp/edit?usp=sharing&ouid=101951801409981981542&rtpof=true&sd=true)
-Once downoload we need to load the file into R
-example (data <- read.csv("C:/Users/Cam/Desktop/BOT_499/CFP_Online.xlsx") 
 
+Once downoload, "trying to think of an way to phrase it as placeing the file into the folder you are using with your working director"
+example (data <- read.csv("C:/Users/Cam/Desktop/BOT_499/CFP_Online.xlsx") 
+This file contains a list of 100 speices that are within the California Floristic Province.
 ```
 data <- read.csv("location of folder/CFP_Online.xlsx") 
 ```
 
-This file is from The Global Biodiversity Information Facility (GBIF) and it quite large
+This file is from The Global Biodiversity Information Facility (GBIF) and it is quite large, and contains GeoData of plant speices
+[GBIF](https://www.dropbox.com/s/nef1p0dmkakcvtr/0000436-210914110416597.csv?dl=0)
 ```
 data <- read.csv("0000436-210914110416597.csv") 
 ```
