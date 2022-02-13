@@ -40,7 +40,7 @@ Step 3. Save the file to your documents.
 Step 4. Restart R 
 
 
-![Image]![Rest_R](https://user-images.githubusercontent.com/99222277/153778610-77351921-c65c-48a7-bbe5-70b3447fb129.png)
+![Rest_R](https://user-images.githubusercontent.com/99222277/153778610-77351921-c65c-48a7-bbe5-70b3447fb129.png)
 
 
 Step 5. Run the following lines in order and one at a time. This may take several minutes.
