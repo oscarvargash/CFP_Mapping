@@ -67,7 +67,7 @@ The package should be update and no error message should appear
 
 ## Load species table csv from WD folder, and assign as 'data'
 Now we need to download our list of species.
-[Species List](https://docs.google.com/spreadsheets/d/17WbYpslUYJon8NQS3xu7AoEDRZVxmHHp/edit?usp=sharing&ouid=101951801409981981542&rtpof=true&sd=true)
+[Species List Download](https://docs.google.com/spreadsheets/d/17WbYpslUYJon8NQS3xu7AoEDRZVxmHHp/edit?usp=sharing&ouid=101951801409981981542&rtpof=true&sd=true)
 
 Once downoload, "trying to think of an way to phrase it as placeing the file into the folder you are using with your working director"
 example (data <- read.csv("C:/Users/Cam/Desktop/BOT_499/CFP_Online.xlsx") 
@@ -77,7 +77,8 @@ data <- read.csv("location of folder/CFP_Online.xlsx")
 ```
 
 This file is from The Global Biodiversity Information Facility (GBIF) and it is quite large, and contains GeoData of plant speices
-[GBIF](https://www.dropbox.com/s/nef1p0dmkakcvtr/0000436-210914110416597.csv?dl=0)
+
+[GBIF Data Download](https://www.dropbox.com/s/nef1p0dmkakcvtr/0000436-210914110416597.csv?dl=0)
 ```
 data <- read.csv("0000436-210914110416597.csv") 
 ```
