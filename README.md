@@ -174,7 +174,7 @@ Genus_species<- geodata2 %>% filter(species == "Genus species")
 plot(Genus_species$decimalLongitude, Genus_species$decimalLatitude)
 ```
 ## Build a initial base map 
-(![Map_Lat_Long_explanation](https://user-images.githubusercontent.com/99222277/153784472-6e692f21-952c-4def-9d86-ba9dff9864ba.png)
+![smaller_xy](https://user-images.githubusercontent.com/99222277/153784782-0c2c3247-f20d-4d8b-8191-0742a47a721f.png)
 
 ```
 basemap <-  get_map(location = c(-140, -60, -32, 60), zoom = 3)
