@@ -65,7 +65,7 @@ library(CoordinateCleaner)
 ```
 The package should be updated and no error message should appear
 
-### Load species table csv from WD folder, and assign as 'data'
+## Load species table csv from WD folder, and assign as 'data'
 Now we need to download our list of species.
 
 [Species List Download](https://www.dropbox.com/scl/fi/m5rx2jjprixvcd8fjhgez/CFP_Online.xlsx?dl=0&rlkey=ypeezprkxn4cgdzmvhrlrpcy4)
@@ -85,7 +85,7 @@ This file is from The Global Biodiversity Information Facility (GBIF) and it is 
 
 [GBIF Data Download](https://www.dropbox.com/s/nef1p0dmkakcvtr/0000436-210914110416597.csv?dl=0)
 
-The download contains a file names "0000436-210914110416597.csv"
+This download contains a file named "0000436-210914110416597.csv"
 
 After completeing the download, place the data set into the folder assocaioed with the directory. So that you can access it through R.
 ```
@@ -100,7 +100,7 @@ Sort then tally by species
 Taxon_Keys_Spp <- c(Taxon_Keys$species)
 Taxon_Keys_Spp_Tally <- Taxon_Keys_Spp %>% group_by(species) %>% tally()
 ```
-If a console message pops up with the message "Error in tally(.) : could not find function "tally"." Please follow the next few steps.
+## If a console message pops up with the message "Error in tally(.) : could not find function "tally"." Please follow the next few steps.
  
 Step 1. Reset R.
 
