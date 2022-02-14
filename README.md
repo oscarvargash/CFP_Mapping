@@ -185,24 +185,26 @@ We suggest changing the values to encompass the range of the species and its pro
 basemap <-  get_map(location = c(-140, -60, -32, 60), zoom = 3)
 ggmap(basemap)
 ```
-## plot data over basemap of CFP
+Plot data over basemap of CFP
 ```
 ggmap(basemap2) + geom_point(data = Genus_speies, aes(x=decimalLongitude, y=decimalLatitude, color=species))
 
 ```
-## Building second base map of average range of data
+Building second base map of average range of data
 Changing the bounding box may be neccesary to encompass a plant species distrubtion.
 ```
 basemap2 <-  get_map(location = c(-120, 20, -120, 40), zoom = 8)
 ggmap(basemap2)
 ```
-#Latitude Clean-up,Removing the lower boundaries of our data
+Latitude Clean-up,Removing the lower boundaries of our data
 ```
 example_LPLat <- quantile(example$decimalLatitude, c(0.005))
 example_UPLat <- quantile(example$decimalLatitude, c(0.995))
 example_1 <- example %>% filter(decimalLatitude > example_LPLat, decimalLatitude < example_UPLat)
+```
+Repeat the previous step for Longitude
+```
 
-# Repeat for Longitude
 LPLon <- quantile(example_1$decimalLongitude, c(0.005))
 UPLon <- quantile(example_1$decimalLongitude, c(0.995))
 example_2 <- example_1 %>% filter(decimalLongitude < example_UPLon, decimalLongitude > example_LPLon)
@@ -221,7 +223,8 @@ Genus_species_example <- clean_coordinates(x = Genus_species,
                                         outliers_td = 60,
                                         outliers_size = 100)
 ```
-#Isolate the flagged obs. (need to figure what these lines do, lines in skelton key)
+##Removing flagged occurence
+Isolate the flagged obs. (need to figure what these lines do, lines in skelton key)
 ```
 eample_dat_fl <- example[!flags_example$.summary,]
 ```
@@ -229,11 +232,11 @@ Exclude flagged obs.
 ```
 example_dat_cl <- example[flags_example$.summary,]
 ```
-## plotting data with flags removed over basemap2
+Plotting data with flags removed over basemap2
 ```
 ggmap(basemap2) + geom_point(data = Genus_species_example, aes(x=decimalLongitude, y=decimalLatitude, color=species, size = 9))
 ```
-## If you'd like to download the species distribution map directly
+If you'd like to download the species distribution map directly
 ```
 ggsave(filename = "Genus_species_distribuition.pdf")
 ```
@@ -246,16 +249,16 @@ Genus_species_Poly_1 <- getDynamicAlphaHull(Genus_species, fraction = 0.95, part
                                     coordHeaders = c('decimalLongitude', 'decimalLatitude'), clipToCoast = 'terrestrial',
                                     proj = "+proj=longlat +datum=WGS84", alphaIncrement = 1, verbose = TRUE)
 ```
-## Plot polygon  
+Step 1. Plot polygon  
 ```
 plot(Genus_species_Poly_1[[1]], col=transparentColor('dark green', 0.5), border = NA) 
 ```
-## Plot data points onto polygon
+Step 2. Plot data points onto polygon
 ```
 points(Genus_species[,c('decimalLongitude','decimalLatitude')], cex = 0.5, pch = 3)
 ```
 
-# Calculate the area of our species distribution in Kilometers
+Step 3. Calculate the area of our species distribution in Kilometers
 ```
 Genus_species_Area <- area(Genus_species_Poly_1[[1]]) /1000000
 Genus_species_Area
