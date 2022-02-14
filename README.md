@@ -137,21 +137,20 @@ Taxon_Keys_Spp_Tally <- Taxon_Keys_Spp %>% group_by(species) %>% tally()
 </p>
 </details>
 
-## Grouping species and Filterering Lat and Long
+### Grouping species
+This will create a list of our filtered species
 ```
 Taxon_Keys_Species_List <- Taxon_Keys %>% group_by(species) %>% tally()
 ```
-### Filtering out any NA in Latitudes
+## Filtering out Lat and Long 
 
-This will filter out any Latitudes that does not have data
-
+Filtering out any invalid Latitude values
 
 ```
 geodata <- Taxon_Keys %>% filter(!is.na(decimalLatitude)) 
 ```
-### Filtering out any NA in Longitudes
+Filtering out any invaild Longitude Value
 
-This will filtter out any Longitudes that does not have data
 ```
 geodata2 <- geodata %>% filter(!is.na(decimalLongitude))
 ```
