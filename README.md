@@ -95,7 +95,7 @@ Taxon_Keys <- read.csv("0000436-210914110416597.csv", sep = "\t")
 Taxon_Keys_Spp <- c(Taxon_Keys$species)
 Taxon_Keys_Spp_Tally <- Taxon_Keys_Spp %>% group_by(species) %>% tally()
 ```
-If a console message pops up saying "Error in tally(.) : could not find function "tally"." Please follow the next few steps.
+If a console message pops up with the message "Error in tally(.) : could not find function "tally"." Please follow the next few steps.
  
 Step 1. Reset R.
  
@@ -113,6 +113,11 @@ Step 4. Load Library
 ```
 library(rlang)
 library(dplyr)
+```
+Step 5. Sort by tally
+```
+Taxon_Keys_Spp <- c(Taxon_Keys$species)
+Taxon_Keys_Spp_Tally <- Taxon_Keys_Spp %>% group_by(species) %>% tally()
 ```
 
  
@@ -169,6 +174,8 @@ Genus_species<- geodata2 %>% filter(species == "Genus species")
 plot(Genus_species$decimalLongitude, Genus_species$decimalLatitude)
 ```
 ## Build a initial base map 
+(![Map_Lat_Long_explanation](https://user-images.githubusercontent.com/99222277/153784472-6e692f21-952c-4def-9d86-ba9dff9864ba.png)
+
 ```
 basemap <-  get_map(location = c(-140, -60, -32, 60), zoom = 3)
 ggmap(basemap)
@@ -180,7 +187,7 @@ ggmap(basemap2) + geom_point(data = Genus_speies, aes(x=decimalLongitude, y=deci
 ## Building second base map of average range of data
 This will change for every species
 ```
-basemap2 <-  get_map(location = c(-122.5, 35.5, -121, 37), zoom = 8)
+basemap2 <-  get_map(location = c(-120, 20, -120, 40), zoom = 8)
 ggmap(basemap2)
 ```
 
