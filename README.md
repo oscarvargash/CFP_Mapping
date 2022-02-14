@@ -237,31 +237,51 @@ basemap <-  get_map(location = c(-140, -60, -32, 60), zoom = 3)
 ggmap(basemap)
 ```
 Plot data over basemap of CFP
+
+**Example:(ggmap(basemap) + geom_point(data = Krameria_erecta_2, aes(x=decimalLongitude, y=decimalLatitude, color=species))**
+
 ```
-ggmap(basemap2) + geom_point(data = Genus_speies, aes(x=decimalLongitude, y=decimalLatitude, color=species))
+ggmap(basemap) + geom_point(data = Genus_speies, aes(x=decimalLongitude, y=decimalLatitude, color=species))
+
 
 ```
 ## Building second base map of average range of data.
 Changing the bounding box may be neccesary to encompass a plant species distrubtion.
+
+**Step 1.**
 ```
 basemap2 <-  get_map(location = c(-120, 20, -120, 40), zoom = 8)
 ggmap(basemap2)
 ```
-### Cleaning Latitude and Longitude and coodinates
-Latitude Clean-up
+**Step 2.** Latitude Clean-up
 ```
 example_LPLat <- quantile(example$decimalLatitude, c(0.005))
 example_UPLat <- quantile(example$decimalLatitude, c(0.995))
 example_1 <- example %>% filter(decimalLatitude > example_LPLat, decimalLatitude < example_UPLat)
 ```
-Longitude Clean-up
+**Step 3.** Longitude Clean-up
 ```
 
 LPLon <- quantile(example_1$decimalLongitude, c(0.005))
 UPLon <- quantile(example_1$decimalLongitude, c(0.995))
 example_2 <- example_1 %>% filter(decimalLongitude < example_UPLon, decimalLongitude > example_LPLon)
 ```
-Beginning of coordinate cleaning
+**Step 4.** Ploting the data on to the Basemap
+```
+ggmap(basemap2) + geom_point(data = Krameria_erecta_2, aes(x=decimalLongitude, y=decimalLatitude, color=species))
+```
+## Beginning of coordinate cleaning
+**Example:flags_Krameria_erecta <- clean_coordinates(x = Krameria_erecta, 
+                                        lon = "decimalLongitude", 
+                                        lat = "decimalLatitude",
+                                        countries = "countryCode",
+                                        species = "species",
+                                        tests = c("capitals", "centroids", "equal","gbif", "institutions",
+                                                  "zeros", "outliers","seas"),
+                                        outliers_method = "quantile",
+                                        outliers_mtp = 5,
+                                        outliers_td = 60,
+                                        outliers_size = 100)**
 ```
 Genus_species_example <- clean_coordinates(x = Genus_species, 
                                         lon = "decimalLongitude", 
