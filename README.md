@@ -1,4 +1,5 @@
 # CFP_Mapping
+(state the purpuse of this project/goal and what "CFP" means)
 
 ## Set working directory 
 Setting up your workplace is important when it comes to organization and accessing necessary files. 
@@ -63,7 +64,7 @@ To check this run
 ```
 library(CoordinateCleaner)
 ```
-The package should be update and no error message should appear
+The package should be updated and no error message should appear
 
 ## Load species table csv from WD folder, and assign as 'data'
 Now we need to download our list of species.
@@ -97,7 +98,7 @@ Taxon_Keys_Spp_Tally <- Taxon_Keys_Spp %>% group_by(species) %>% tally()
 ```
 If a console message pops up with the message "Error in tally(.) : could not find function "tally"." Please follow the next few steps.
  
-Step 1. Reset R.
+Step 1. Reset R.![Rest_R](https://user-images.githubusercontent.com/99222277/153778610-77351921-c65c-48a7-bbe5-70b3447fb129.png)
  
 Step 2. Remove packages "rlang" and "dplyr"
  ```
@@ -174,8 +175,11 @@ Genus_species<- geodata2 %>% filter(species == "Genus species")
 plot(Genus_species$decimalLongitude, Genus_species$decimalLatitude)
 ```
 ## Build a initial base map 
-Now we can set our basemap along with the bounding box, the following figure shows how the bounding box is set.
+Now we can set our basemap along with the bounding box, the following figure shows how the bounding box is set
 ![smaller_xy](https://user-images.githubusercontent.com/99222277/153784782-0c2c3247-f20d-4d8b-8191-0742a47a721f.png)
+
+We suggest changing the values to encompass the range of the species and its proximity to the CFP.
+
 
 ```
 basemap <-  get_map(location = c(-140, -60, -32, 60), zoom = 3)
@@ -184,14 +188,25 @@ ggmap(basemap)
 ## plot data over basemap of CFP
 ```
 ggmap(basemap2) + geom_point(data = Genus_speies, aes(x=decimalLongitude, y=decimalLatitude, color=species))
+
 ```
 ## Building second base map of average range of data
-This will change for every species
+Changing the bounding box may be neccesary to encompass a plant species distrubtion.
 ```
 basemap2 <-  get_map(location = c(-120, 20, -120, 40), zoom = 8)
 ggmap(basemap2)
 ```
+#Latitude Clean-up,Removing the lower boundaries of our data
+```
+example_LPLat <- quantile(example$decimalLatitude, c(0.005))
+example_UPLat <- quantile(example$decimalLatitude, c(0.995))
+example_1 <- example %>% filter(decimalLatitude > example_LPLat, decimalLatitude < example_UPLat)
 
+# Repeat for Longitude
+LPLon <- quantile(example_1$decimalLongitude, c(0.005))
+UPLon <- quantile(example_1$decimalLongitude, c(0.995))
+example_2 <- example_1 %>% filter(decimalLongitude < example_UPLon, decimalLongitude > example_LPLon)
+```
 # Beginning of coordinate cleaning
 ```
 Genus_species_example <- clean_coordinates(x = Genus_species, 
@@ -206,6 +221,14 @@ Genus_species_example <- clean_coordinates(x = Genus_species,
                                         outliers_td = 60,
                                         outliers_size = 100)
 ```
+#Isolate the flagged obs. (need to figure what these lines do, lines in skelton key)
+```
+eample_dat_fl <- example[!flags_example$.summary,]
+```
+Exclude flagged obs.
+```
+example_dat_cl <- example[flags_example$.summary,]
+```
 ## plotting data with flags removed over basemap2
 ```
 ggmap(basemap2) + geom_point(data = Genus_species_example, aes(x=decimalLongitude, y=decimalLatitude, color=species, size = 9))
@@ -217,6 +240,7 @@ ggsave(filename = "Genus_species_distribuition.pdf")
 ### Probably need to filter through occurrences manually to remove any outliers remaining
 
 # Beginning on Polygon work
+(short explaination of why we are creating polygon/ shapefiles)
 ```
 Genus_species_Poly_1 <- getDynamicAlphaHull(Genus_species, fraction = 0.95, partCount = 4, buff = 10000, initialAlpha = 3,
                                     coordHeaders = c('decimalLongitude', 'decimalLatitude'), clipToCoast = 'terrestrial',
