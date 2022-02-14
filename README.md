@@ -223,6 +223,7 @@ Genus_species_example <- clean_coordinates(x = Genus_species,
                                         outliers_size = 100)
 ```
 Removing flagged occurence
+
 Isolate the flagged obs. (need to figure what these lines do, lines in skelton key)
 ```
 eample_dat_fl <- example[!flags_example$.summary,]
@@ -235,11 +236,11 @@ Plotting data with flags removed over basemap2
 ```
 ggmap(basemap2) + geom_point(data = Genus_species_example, aes(x=decimalLongitude, y=decimalLatitude, color=species, size = 9))
 ```
-If you'd like to download the species distribution map directly
+Opitional Download
 ```
 ggsave(filename = "Genus_species_distribuition.pdf")
 ```
-(Note from Alex)Probably need to filter through occurrences manually to remove any outliers remaining
+(Note from Alexander)Probably need to filter through occurrences manually to remove any outliers remaining
 
 # Beginning on Polygon work
 (short explaination of why we are creating polygon/ shapefiles)
