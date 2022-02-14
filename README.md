@@ -272,17 +272,9 @@ ggmap(basemap2) + geom_point(data = Krameria_erecta_2, aes(x=decimalLongitude, y
 ```
 ## Beginning of coordinate cleaning
 
-**Example:flags_Krameria_erecta <- clean_coordinates(x = Krameria_erecta, 
-                                        lon = "decimalLongitude", 
-                                        lat = "decimalLatitude",
-                                        countries = "countryCode",
-                                        species = "species",
-                                        tests = c("capitals", "centroids", "equal","gbif", "institutions",
-                                                  "zeros", "outliers","seas"),
-                                        outliers_method = "quantile",
-                                        outliers_mtp = 5,
-                                        outliers_td = 60,
-                                        outliers_size = 100)**
+Example: 
+![Example_Flagged](https://user-images.githubusercontent.com/99222277/153942636-3dc69b93-e386-4b8b-9015-d2736e7deb8c.png)
+
 ```
 Genus_species_example <- clean_coordinates(x = Genus_species, 
                                         lon = "decimalLongitude", 
