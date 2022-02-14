@@ -191,6 +191,7 @@ geodata2 <- geodata %>% filter(!is.na(decimalLongitude))
 ### Group species names from geodata2 (Removes 1 spp. ["Calochortus indecorus"])
 ```
 geodata2_Species_List <- geodata2 %>% group_by(species) %>% tally()
+geodata2_Species_List
 ```
 ### Latitude plotting
 ```
