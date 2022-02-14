@@ -188,7 +188,7 @@ Genus_species<- geodata2 %>% filter(species == "Genus species")
 ```
 plot(Genus_species$decimalLongitude, Genus_species$decimalLatitude)
 ```
-## Build a initial base map 
+## Creating a initial base map 
 Now we can set our basemap along with the bounding box, the following figure shows how the bounding box is set
 ![smaller_xy](https://user-images.githubusercontent.com/99222277/153784782-0c2c3247-f20d-4d8b-8191-0742a47a721f.png)
 
@@ -199,18 +199,18 @@ We suggest changing the values to encompass the range of the species and its pro
 basemap <-  get_map(location = c(-140, -60, -32, 60), zoom = 3)
 ggmap(basemap)
 ```
-### Plot data over basemap of CFP
+Plot data over basemap of CFP
 ```
 ggmap(basemap2) + geom_point(data = Genus_speies, aes(x=decimalLongitude, y=decimalLatitude, color=species))
 
 ```
-### Building second base map of average range of data
+## Building second base map of average range of data.
 Changing the bounding box may be neccesary to encompass a plant species distrubtion.
 ```
 basemap2 <-  get_map(location = c(-120, 20, -120, 40), zoom = 8)
 ggmap(basemap2)
 ```
-### Cleaning Latitude and Longitude 
+### Cleaning Latitude and Longitude and coodinates
 Latitude Clean-up
 ```
 example_LPLat <- quantile(example$decimalLatitude, c(0.005))
@@ -224,7 +224,7 @@ LPLon <- quantile(example_1$decimalLongitude, c(0.005))
 UPLon <- quantile(example_1$decimalLongitude, c(0.995))
 example_2 <- example_1 %>% filter(decimalLongitude < example_UPLon, decimalLongitude > example_LPLon)
 ```
-## Beginning of coordinate cleaning
+Beginning of coordinate cleaning
 ```
 Genus_species_example <- clean_coordinates(x = Genus_species, 
                                         lon = "decimalLongitude", 
