@@ -271,6 +271,7 @@ example_2 <- example_1 %>% filter(decimalLongitude < example_UPLon, decimalLongi
 ggmap(basemap2) + geom_point(data = Krameria_erecta_2, aes(x=decimalLongitude, y=decimalLatitude, color=species))
 ```
 ## Beginning of coordinate cleaning
+
 **Example:flags_Krameria_erecta <- clean_coordinates(x = Krameria_erecta, 
                                         lon = "decimalLongitude", 
                                         lat = "decimalLatitude",
