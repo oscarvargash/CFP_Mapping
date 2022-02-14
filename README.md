@@ -67,7 +67,7 @@ The package should be update and no error message should appear
 
 ## Load species table csv from WD folder, and assign as 'data'
 Now we need to download our list of species.
-[Species List Download](https://docs.google.com/spreadsheets/d/17WbYpslUYJon8NQS3xu7AoEDRZVxmHHp/edit?usp=sharing&ouid=101951801409981981542&rtpof=true&sd=true)
+[Species List Download](https://www.dropbox.com/scl/fi/m5rx2jjprixvcd8fjhgez/CFP_Online.xlsx?dl=0&rlkey=ypeezprkxn4cgdzmvhrlrpcy4)
 
 Once downoload, "trying to think of an way to phrase it as placeing the file into the folder you are using with your working director"
 example (data <- read.csv("C:/Users/Cam/Desktop/BOT_499/CFP_Online.xlsx") 
