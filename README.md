@@ -38,7 +38,7 @@ library(CoordinateCleaner)
 library(rnaturalearth)
 library(rangeBuilder)
 ```
-## If you ran into an issue with the package "CoordinateCleaner" and "terra" not being update, follow these steps.
+### If you ran into an issue with the package "CoordinateCleaner" and "terra" not being update, follow these steps.
 The error seems to occur due to a older verison of "terra" being installed.
 <details><summary> CLCK ME </summary>
   <p>
