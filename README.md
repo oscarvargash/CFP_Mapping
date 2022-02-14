@@ -38,22 +38,22 @@ library(CoordinateCleaner)
 library(rnaturalearth)
 library(rangeBuilder)
 ```
-## If you ran into an issue with the package "CoordinateClear" and "terra" not being update, follow these steps.
+## If you ran into an issue with the package "CoordinateCleaner" and "terra" not being update, follow these steps.
 The error seems to occur due to a older verison of "terra" being installed.
 
-Step 1. Download and instal [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
+**Step 1.** Download and instal [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
 
-Step 2. Create a txt. file named " .Renviron ".
+**Step 2.** Create a txt. file named " .Renviron ".
 
-Step 3. Save the file to your documents.
+**Step 3.** Save the file to your documents.
 
-Step 4. Restart R 
+**Step 4.** Restart R 
 
 
 ![Rest_R](https://user-images.githubusercontent.com/99222277/153778610-77351921-c65c-48a7-bbe5-70b3447fb129.png)
 
 
-Step 5. Run the following lines in order and one at a time. This may take several minutes.
+**Step 5.** Run the following lines in order and one at a time. This may take several minutes.
 ```
 write('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', file = "~/.Renviron", append = TRUE)
 Sys.which("make")
@@ -65,7 +65,7 @@ library(CoordinateCleaner)
 ```
 The package should be updated and no error message should appear
 
-## Load species table csv from WD folder, and assign as 'data'
+## Loading species table csv from WD folder, and assign as 'data'
 Now we need to download our list of species.
 
 [Species List Download](https://www.dropbox.com/scl/fi/m5rx2jjprixvcd8fjhgez/CFP_Online.xlsx?dl=0&rlkey=ypeezprkxn4cgdzmvhrlrpcy4)
@@ -102,26 +102,26 @@ Taxon_Keys_Spp_Tally <- Taxon_Keys_Spp %>% group_by(species) %>% tally()
 ```
 ## If a console message pops up with the message "Error in tally(.) : could not find function "tally"." Please follow the next few steps.
  
-Step 1. Reset R.
+**Step 1.** Reset R.
 
 ![Rest_R](https://user-images.githubusercontent.com/99222277/153778610-77351921-c65c-48a7-bbe5-70b3447fb129.png)
  
-Step 2. Remove packages "rlang" and "dplyr"
+**Step 2.** Remove packages "rlang" and "dplyr"
  ```
 remove.packages("rlang")
 remove.packages("dplyr")
 ```
-Step 3. Re-install the packages.
+**Step 3.** Re-install the packages.
 ```
 install.packages("rlang")
 install.packages("dplyr")
 ```
-Step 4. Load Library
+**Step 4.** Load Library
 ```
 library(rlang)
 library(dplyr)
 ```
-Step 5. Sort by tally
+**Step 5.** Sort by tally
 ```
 Taxon_Keys_Spp <- c(Taxon_Keys$species)
 Taxon_Keys_Spp_Tally <- Taxon_Keys_Spp %>% group_by(species) %>% tally()
