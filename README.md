@@ -59,14 +59,13 @@ write('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', file = "~/.Renviron", append 
 Sys.which("make")
 install.packages("terra", type = "source")
 ```
-### This should have updated your "terra" packages
-To check this run
+This should have updated your "terra" packages, which we can check by loading the packages
 ```
 library(CoordinateCleaner)
 ```
 The package should be updated and no error message should appear
 
-## Load species table csv from WD folder, and assign as 'data'
+### Load species table csv from WD folder, and assign as 'data'
 Now we need to download our list of species.
 [Species List Download](https://www.dropbox.com/scl/fi/m5rx2jjprixvcd8fjhgez/CFP_Online.xlsx?dl=0&rlkey=ypeezprkxn4cgdzmvhrlrpcy4)
 
@@ -126,7 +125,7 @@ Taxon_Keys_Spp_Tally <- Taxon_Keys_Spp %>% group_by(species) %>% tally()
 ```
 Taxon_Keys_Species_List <- Taxon_Keys %>% group_by(species) %>% tally()
 ```
-## #Filtering out any NA in Latitudes
+### #Filtering out any NA in Latitudes
 
 This will filter out any Latitudes that does not have data
 
@@ -138,25 +137,25 @@ This will filtter out any Longitudes that does not have data
 ```
 geodata2 <- geodata %>% filter(!is.na(decimalLongitude))
 ```
-## Group species names from geodata2 (Removes 1 spp. ["Calochortus indecorus"])
+### Group species names from geodata2 (Removes 1 spp. ["Calochortus indecorus"])
 ```
 geodata2_Species_List <- geodata2 %>% group_by(species) %>% tally()
 ```
-## Latitude plotting
+### Latitude plotting
 ```
 geodata2$decimalLatitude
 plot(geodata$decimalLatitude)
 hist(geodata$decimalLatitude, breaks=60)
 ```
-## Filtering out occurrences with a Latitude beneath 1
+### Filtering out occurrences with a Latitude beneath 1
 ```
 NLat <- geodata2 %>% filter(decimalLatitude < 1) 
 ```
-## Pull out list of species names from NLAT
+### Pull out list of species names from NLAT
 ```
 Species_NLat <- NLat %>% group_by(species) %>% tally()
 ```
-## Plot Longitude & Latitude data together
+### Plot Longitude & Latitude data together
 ```
 plot(geodata2$decimalLongitude, geodata2$decimalLatitude)
 ```
@@ -184,24 +183,25 @@ We suggest changing the values to encompass the range of the species and its pro
 basemap <-  get_map(location = c(-140, -60, -32, 60), zoom = 3)
 ggmap(basemap)
 ```
-Plot data over basemap of CFP
+###Plot data over basemap of CFP
 ```
 ggmap(basemap2) + geom_point(data = Genus_speies, aes(x=decimalLongitude, y=decimalLatitude, color=species))
 
 ```
-Building second base map of average range of data
+###Building second base map of average range of data
 Changing the bounding box may be neccesary to encompass a plant species distrubtion.
 ```
 basemap2 <-  get_map(location = c(-120, 20, -120, 40), zoom = 8)
 ggmap(basemap2)
 ```
-Latitude Clean-up,Removing the lower boundaries of our data
+###Cleaning Latitude and Longitude 
+Latitude Clean-up
 ```
 example_LPLat <- quantile(example$decimalLatitude, c(0.005))
 example_UPLat <- quantile(example$decimalLatitude, c(0.995))
 example_1 <- example %>% filter(decimalLatitude > example_LPLat, decimalLatitude < example_UPLat)
 ```
-Repeat the previous step for Longitude
+Longitude Clean-up
 ```
 
 LPLon <- quantile(example_1$decimalLongitude, c(0.005))
