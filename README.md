@@ -70,8 +70,9 @@ The package should be updated and no error message should appear
 Now we need to download our list of species.
 [Species List Download](https://www.dropbox.com/scl/fi/m5rx2jjprixvcd8fjhgez/CFP_Online.xlsx?dl=0&rlkey=ypeezprkxn4cgdzmvhrlrpcy4)
 
-Once downoload, "trying to think of an way to phrase it as placeing the file into the folder you are using with your working director"
-example (data <- read.csv("C:/Users/Cam/Desktop/BOT_499/CFP_Online.xlsx") 
+Once downoload,place the data set into the folder assocaioed with the directory.
+The following example has the "CFP_Online.xlsx" file within the BOT_499 folder
+(data <- read.csv("C:/Users/Cam/Desktop/BOT_499/CFP_Online.xlsx") 
 This file contains a list of 100 speices that are within the California Floristic Province.
 ```
 data <- read.csv("location of folder/CFP_Online.xlsx") 
@@ -81,17 +82,15 @@ This file is from The Global Biodiversity Information Facility (GBIF) and it is 
 
 [GBIF Data Download](https://www.dropbox.com/s/nef1p0dmkakcvtr/0000436-210914110416597.csv?dl=0)
 
-After downloading the previous file we can now add it to R
+After completeing the download, place the data set into the folder assocaioed with the directory. So that you can access it through R.
 ```
 data <- read.csv("0000436-210914110416597.csv") 
 ```
-## Assign value to our new gbif file
+Assign value to our new gbif file
 ```
 Taxon_Keys <- read.csv("0000436-210914110416597.csv", sep = "\t")
 ```
-
-
-## Sort then tally by species
+Sort then tally by species
 ```
 Taxon_Keys_Spp <- c(Taxon_Keys$species)
 Taxon_Keys_Spp_Tally <- Taxon_Keys_Spp %>% group_by(species) %>% tally()
@@ -123,18 +122,18 @@ Taxon_Keys_Spp_Tally <- Taxon_Keys_Spp %>% group_by(species) %>% tally()
 
  
 
-## Group species names from Taxon_Keys
+### Group species names from Taxon_Keys
 ```
 Taxon_Keys_Species_List <- Taxon_Keys %>% group_by(species) %>% tally()
 ```
-## Filtering out any NA in Latitudes
+## #Filtering out any NA in Latitudes
 
 This will filter out any Latitudes that does not have data
 
 ```
 geodata <- Taxon_Keys %>% filter(!is.na(decimalLatitude)) 
 ```
-## Filtering out any NA in Longitudes
+### Filtering out any NA in Longitudes
 This will filtter out any Longitudes that does not have data
 ```
 geodata2 <- geodata %>% filter(!is.na(decimalLongitude))
@@ -164,7 +163,7 @@ plot(geodata2$decimalLongitude, geodata2$decimalLatitude)
 
 # Beginning of individual spp cleaning
 
-### Isolate individual species occurrences (replace example & "Genus species" where appropriate)
+Isolate individual species occurrences (replace example & "Genus species" where appropriate)
 This will filter our data for a specific speices.
 Example:(Krameria_erecta<- geodata2 %>% filter(species == "Krameria erecta")
 ```
@@ -209,7 +208,7 @@ LPLon <- quantile(example_1$decimalLongitude, c(0.005))
 UPLon <- quantile(example_1$decimalLongitude, c(0.995))
 example_2 <- example_1 %>% filter(decimalLongitude < example_UPLon, decimalLongitude > example_LPLon)
 ```
-# Beginning of coordinate cleaning
+## Beginning of coordinate cleaning
 ```
 Genus_species_example <- clean_coordinates(x = Genus_species, 
                                         lon = "decimalLongitude", 
@@ -223,7 +222,7 @@ Genus_species_example <- clean_coordinates(x = Genus_species,
                                         outliers_td = 60,
                                         outliers_size = 100)
 ```
-##Removing flagged occurence
+Removing flagged occurence
 Isolate the flagged obs. (need to figure what these lines do, lines in skelton key)
 ```
 eample_dat_fl <- example[!flags_example$.summary,]
@@ -240,7 +239,7 @@ If you'd like to download the species distribution map directly
 ```
 ggsave(filename = "Genus_species_distribuition.pdf")
 ```
-### Probably need to filter through occurrences manually to remove any outliers remaining
+(Note from Alex)Probably need to filter through occurrences manually to remove any outliers remaining
 
 # Beginning on Polygon work
 (short explaination of why we are creating polygon/ shapefiles)
