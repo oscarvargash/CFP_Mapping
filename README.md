@@ -96,7 +96,9 @@ Taxon_Keys_Spp_Tally <- Taxon_Keys_Spp %>% group_by(species) %>% tally()
 ```
 If a console message pops up with the message "Error in tally(.) : could not find function "tally"." Please follow the next few steps.
  
-Step 1. Reset R.![Rest_R](https://user-images.githubusercontent.com/99222277/153778610-77351921-c65c-48a7-bbe5-70b3447fb129.png)
+Step 1. Reset R.
+
+![Rest_R](https://user-images.githubusercontent.com/99222277/153778610-77351921-c65c-48a7-bbe5-70b3447fb129.png)
  
 Step 2. Remove packages "rlang" and "dplyr"
  ```
