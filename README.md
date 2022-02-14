@@ -185,18 +185,18 @@ We suggest changing the values to encompass the range of the species and its pro
 basemap <-  get_map(location = c(-140, -60, -32, 60), zoom = 3)
 ggmap(basemap)
 ```
-###Plot data over basemap of CFP
+### Plot data over basemap of CFP
 ```
 ggmap(basemap2) + geom_point(data = Genus_speies, aes(x=decimalLongitude, y=decimalLatitude, color=species))
 
 ```
-###Building second base map of average range of data
+### Building second base map of average range of data
 Changing the bounding box may be neccesary to encompass a plant species distrubtion.
 ```
 basemap2 <-  get_map(location = c(-120, 20, -120, 40), zoom = 8)
 ggmap(basemap2)
 ```
-###Cleaning Latitude and Longitude 
+### Cleaning Latitude and Longitude 
 Latitude Clean-up
 ```
 example_LPLat <- quantile(example$decimalLatitude, c(0.005))
