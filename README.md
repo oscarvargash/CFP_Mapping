@@ -78,11 +78,10 @@ Now we need to download our list of species.
 Once downoload,place the data set into the folder assocaioed with the directory.
 The following example has the "CFP_Online.xlsx" file within the BOT_499 folder
 
-**(data <- read.csv("C:/Users/Cam/Desktop/BOT_499/CFP_Online.xlsx")**
 
 This file contains a list of 100 speices that are within the California Floristic Province.
 
-**Example: ("C:/Users/Cam/Desktop/BOT_499/CFP_Online.xlsx")**
+**Example:(data <- read.csv("C:/Users/Cam/Desktop/BOT_499/CFP_Online.xlsx")**
 ```
 data <- read.csv("location of folder/CFP_Online.xlsx") 
 ```
