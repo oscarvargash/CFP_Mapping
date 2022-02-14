@@ -9,7 +9,7 @@ setwd() will set your working director
 ```
 setwd("~/CFP_Mapping") 
 ```
-getwd() will show you which director you are currently using
+getwd() will show you which directory you are currently using
 ```
 getwd()
 ```
