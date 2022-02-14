@@ -129,7 +129,7 @@ Taxon_Keys_Spp_Tally <- Taxon_Keys_Spp %>% group_by(species) %>% tally()
 ```
 Taxon_Keys_Species_List <- Taxon_Keys %>% group_by(species) %>% tally()
 ```
-### #Filtering out any NA in Latitudes
+### Filtering out any NA in Latitudes
 
 This will filter out any Latitudes that does not have data
 
