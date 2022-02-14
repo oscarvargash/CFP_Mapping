@@ -174,6 +174,7 @@ Genus_species<- geodata2 %>% filter(species == "Genus species")
 plot(Genus_species$decimalLongitude, Genus_species$decimalLatitude)
 ```
 ## Build a initial base map 
+Now we can set our basemap along with the bounding box, the following figure shows how the bounding box is set.
 ![smaller_xy](https://user-images.githubusercontent.com/99222277/153784782-0c2c3247-f20d-4d8b-8191-0742a47a721f.png)
 
 ```
