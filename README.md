@@ -71,13 +71,15 @@ Now we need to download our list of species.
 
 Once downoload,place the data set into the folder assocaioed with the directory.
 The following example has the "CFP_Online.xlsx" file within the BOT_499 folder
-(data <- read.csv("C:/Users/Cam/Desktop/BOT_499/CFP_Online.xlsx") 
+
+**(data <- read.csv("C:/Users/Cam/Desktop/BOT_499/CFP_Online.xlsx")**
 This file contains a list of 100 speices that are within the California Floristic Province.
 ```
 data <- read.csv("location of folder/CFP_Online.xlsx") 
 ```
 
 This file is from The Global Biodiversity Information Facility (GBIF) and it is quite large, and contains GeoData of plant speices
+
 
 [GBIF Data Download](https://www.dropbox.com/s/nef1p0dmkakcvtr/0000436-210914110416597.csv?dl=0)
 
@@ -166,7 +168,7 @@ plot(geodata2$decimalLongitude, geodata2$decimalLatitude)
 
 Isolate individual species occurrences (replace example & "Genus species" where appropriate)
 This will filter our data for a specific speices.
-Example:(Krameria_erecta<- geodata2 %>% filter(species == "Krameria erecta")
+**Example:(Krameria_erecta<- geodata2 %>% filter(species == "Krameria erecta")**
 ```
 Genus_species<- geodata2 %>% filter(species == "Genus species")
 ```
