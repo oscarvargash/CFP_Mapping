@@ -105,7 +105,7 @@ Sort then tally by species
 Taxon_Keys_Spp <- c(Taxon_Keys$species)
 Taxon_Keys_Spp_Tally <- Taxon_Keys_Spp %>% group_by(species) %>% tally()
 ```
-## If a console message pops up with the message "Error in tally(.) : could not find function "tally"." Please follow the next few steps.
+### If a console message pops up with the message "Error in tally(.) : could not find function "tally"." Please follow the next few steps.
 <details><summary>CLICK ME</summary>
 <p>
  
