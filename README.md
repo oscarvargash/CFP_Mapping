@@ -79,6 +79,8 @@ data <- read.csv("location of folder/CFP_Online.xlsx")
 This file is from The Global Biodiversity Information Facility (GBIF) and it is quite large, and contains GeoData of plant speices
 
 [GBIF Data Download](https://www.dropbox.com/s/nef1p0dmkakcvtr/0000436-210914110416597.csv?dl=0)
+
+After downloading the previous file we can now add it to R
 ```
 data <- read.csv("0000436-210914110416597.csv") 
 ```
@@ -93,15 +95,41 @@ Taxon_Keys <- read.csv("0000436-210914110416597.csv", sep = "\t")
 Taxon_Keys_Spp <- c(Taxon_Keys$species)
 Taxon_Keys_Spp_Tally <- Taxon_Keys_Spp %>% group_by(species) %>% tally()
 ```
+If a console message pops up saying "Error in tally(.) : could not find function "tally"." Please follow the next few steps.
+ 
+Step 1. Reset R.
+ 
+Step 2. Remove packages "rlang" and "dplyr"
+ ```
+remove.packages("rlang")
+remove.packages("dplyr")
+```
+Step 3. Re-install the packages.
+```
+install.packages("rlang")
+install.packages("dplyr")
+```
+Step 4. Load Library
+```
+library(rlang)
+library(dplyr)
+```
+
+ 
+
 ## Group species names from Taxon_Keys
 ```
 Taxon_Keys_Species_List <- Taxon_Keys %>% group_by(species) %>% tally()
 ```
 ## Filtering out any NA in Latitudes
+
+This will filter out any Latitudes that does not have data
+
 ```
 geodata <- Taxon_Keys %>% filter(!is.na(decimalLatitude)) 
 ```
-## Filter out any NA in Longitudes
+## Filtering out any NA in Longitudes
+This will filtter out any Longitudes that does not have data
 ```
 geodata2 <- geodata %>% filter(!is.na(decimalLongitude))
 ```
@@ -132,7 +160,7 @@ plot(geodata2$decimalLongitude, geodata2$decimalLatitude)
 
 ### Isolate individual species occurrences (replace example & "Genus species" where appropriate)
 This will filter our data for a specific speices.
-Example,(Krameria_erecta<- geodata2 %>% filter(species == "Krameria erecta")
+Example:(Krameria_erecta<- geodata2 %>% filter(species == "Krameria erecta")
 ```
 Genus_species<- geodata2 %>% filter(species == "Genus species")
 ```
