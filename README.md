@@ -137,18 +137,20 @@ Taxon_Keys_Spp_Tally <- Taxon_Keys_Spp %>% group_by(species) %>% tally()
 </p>
 </details>
 
-### Group species names from Taxon_Keys
+## Grouping species and Filterering Lat and Long
 ```
 Taxon_Keys_Species_List <- Taxon_Keys %>% group_by(species) %>% tally()
 ```
-### Filtering out any NA in Latitudes
+###Filtering out any NA in Latitudes
 
 This will filter out any Latitudes that does not have data
+
 
 ```
 geodata <- Taxon_Keys %>% filter(!is.na(decimalLatitude)) 
 ```
-### Filtering out any NA in Longitudes
+###Filtering out any NA in Longitudes
+
 This will filtter out any Longitudes that does not have data
 ```
 geodata2 <- geodata %>% filter(!is.na(decimalLongitude))
@@ -164,6 +166,7 @@ plot(geodata$decimalLatitude)
 hist(geodata$decimalLatitude, breaks=60)
 ```
 ### Filtering out occurrences with a Latitude beneath 1
+This step will filter out any data that is in the Southern Hemisphere, since our area of study is in the Northern Hemishere
 ```
 NLat <- geodata2 %>% filter(decimalLatitude < 1) 
 ```
