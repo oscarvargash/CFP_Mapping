@@ -40,6 +40,8 @@ library(rangeBuilder)
 ```
 ## If you ran into an issue with the package "CoordinateCleaner" and "terra" not being update, follow these steps.
 The error seems to occur due to a older verison of "terra" being installed.
+<details><summary> CLCK ME </summary>
+  <p>
 
 **Step 1.** Download and instal [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
 
@@ -64,6 +66,9 @@ This should have updated your "terra" packages, which we can check by loading th
 library(CoordinateCleaner)
 ```
 The package should be updated and no error message should appear
+    
+  </p>
+  </details>
 
 ## Loading species table csv from WD folder, and assign as 'data'
 Now we need to download our list of species.
