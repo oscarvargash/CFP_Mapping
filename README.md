@@ -241,7 +241,7 @@ Plot data over basemap of CFP
 **Example:(ggmap(basemap) + geom_point(data = Krameria_erecta_2, aes(x=decimalLongitude, y=decimalLatitude, color=species))**
 
 ```
-ggmap(basemap) + geom_point(data = Genus_speies, aes(x=decimalLongitude, y=decimalLatitude, color=species))
+ggmap(basemap) + geom_point(data = Genus_speies_2, aes(x=decimalLongitude, y=decimalLatitude, color=species))
 
 
 ```
