@@ -249,6 +249,7 @@ ggmap(basemap) + geom_point(data = Genus_speies_2, aes(x=decimalLongitude, y=dec
 Changing the bounding box may be neccesary to encompass a plant species distrubtion.
 
 (click me for this)
+```
 example_1 <- example %>% filter(decimalLatitude > example_LPLat, decimalLatitude < example_UPLat)
 ```
 **Step 3.** Longitude Clean-up
