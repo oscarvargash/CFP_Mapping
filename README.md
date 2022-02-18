@@ -248,15 +248,7 @@ ggmap(basemap) + geom_point(data = Genus_speies_2, aes(x=decimalLongitude, y=dec
 ## Building second base map of average range of data.
 Changing the bounding box may be neccesary to encompass a plant species distrubtion.
 
-**Step 1.**
-```
-basemap2 <-  get_map(location = c(-120, 20, -120, 40), zoom = 8)
-ggmap(basemap2)
-```
-**Step 2.** Latitude Clean-up
-```
-example_LPLat <- quantile(example$decimalLatitude, c(0.005))
-example_UPLat <- quantile(example$decimalLatitude, c(0.995))
+(click me for this)
 example_1 <- example %>% filter(decimalLatitude > example_LPLat, decimalLatitude < example_UPLat)
 ```
 **Step 3.** Longitude Clean-up
