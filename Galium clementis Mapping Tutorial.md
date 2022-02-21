@@ -16,7 +16,6 @@ install.packages(c("dpylr","rgbif", "purrr", "readr", "terra", "taxize", "mappro
 ```
 ### Now you must load the packages into your library
 ```
-library(terra)
 library(dplyr)
 library(purrr)
 library(readr)  
@@ -211,3 +210,91 @@ plot(geodata2$decimalLongitude, geodata2$decimalLatitude)
 
 Isolate individual species occurrences (replace example & "Genus species" where appropriate)
 This will filter our data for a specific speices.
+```
+
+Krameria_erecta<- geodata2 %>% filter(species == "Krameria erecta")
+```
+# Plotting out uncleaned data to get coordinate frame
+```
+plot(Krameria_erecta$decimalLongitude, Krameria_erecta$decimalLatitude)
+```
+
+# Building a initial base map 
+```
+basemap <-  get_map(location = c(-140, -60, -32, 60), zoom = 3)
+ggmap(basemap)
+```
+
+# plot data over basemap of CFP
+```
+ggmap(basemap) + geom_point(data = Krameria_erecta, aes(x=decimalLongitude, y=decimalLatitude, color=species))
+```
+
+# Building second base map of average range of data
+```
+basemap2 <-  get_map(location = c(-125, 20, -100, 40), zoom =5)
+ggmap(basemap2)
+
+```
+
+# plot data over basemap2
+```
+ggmap(basemap2) + geom_point(data = Krameria_erecta_2, aes(x=decimalLongitude, y=decimalLatitude, color=species))
+```
+
+
+# Beginning of coordinate cleaning
+```
+flags_Krameria_erecta <- clean_coordinates(x = Krameria_erecta, 
+                                        lon = "decimalLongitude", 
+                                        lat = "decimalLatitude",
+                                        countries = "countryCode",
+                                        species = "species",
+                                        tests = c("capitals", "centroids", "equal","gbif", "institutions",
+                                                  "zeros", "outliers","seas"),
+                                        outliers_method = "quantile",
+                                        outliers_mtp = 2,
+                                        outliers_td = 60,
+                                        outliers_size = 100)
+ ```
+#Isolate the flagged obs.
+```
+Krameria_erecta_dat_fl <- Krameria_erecta[!flags_Krameria_erecta$.summary,]
+```
+#Exclude flagged obs.
+```
+Krameria_erecta_dat_cl <- Krameria_erecta[flags_Krameria_erecta$.summary,]
+```
+#Plotting flagged and non-flagged species
+```
+plot(flags_Krameria_erecta, lon = "decimalLongitude", lat = "decimalLatitude")
+```
+# plotting data with flags removed over basemap2
+```
+ggmap(basemap2) + geom_point(data = Krameria_erecta_dat_cl, aes(x=decimalLongitude, y=decimalLatitude, color=species))
+```
+# If you'd like to download the species distribution map directly
+```
+ggsave(filename = "Krameria_erecta_distribuition.pdf")
+```
+
+# Beginning on Polygon work (If you have removed any flagged occurrences replace "example" in following section with "example_dat_cl")
+```
+Krameria_erecta_Poly_1 <- getDynamicAlphaHull(Krameria_erecta_dat_cl, fraction = 0.95, partCount = 4, buff = 10000, initialAlpha = 3,
+                                    coordHeaders = c('decimalLongitude', 'decimalLatitude'), clipToCoast = 'terrestrial',
+                                    proj = "+proj=longlat +datum=WGS84", alphaIncrement = 1, verbose = TRUE)
+```
+# Plot polygon  
+```
+plot(Krameria_erecta_Poly_1[[1]], col=transparentColor('dark green', 0.5), border = NA) 
+```
+# Plot data points onto polygon
+```
+points(Krameria_erecta_dat_cl[,c('decimalLongitude','decimalLatitude')], cex = 0.5, pch = 3)
+```
+
+# Calculate the area of our species distribution in Kilometers
+```
+Krameria_erecta_Area <- area(Krameria_erecta_Poly_1[[1]]) /1000000
+Krameria_erecta_Area
+```
