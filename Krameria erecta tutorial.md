@@ -79,7 +79,7 @@ The package should be updated and no error message should appear
 
 
 
-  ## Loading species table csv from WD folder, and assign as 'data'
+  ## Loading species table kist
 Now we need to download our list of species.
 
 [Species List Download](https://www.dropbox.com/s/ork7fraqp3crkm1/Species_List.csv?dl=0)
