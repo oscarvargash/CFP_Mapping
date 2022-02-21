@@ -1,4 +1,4 @@
-# Mapping Tutorial for **_Galium clementis_**
+# Mapping Tutorial for **_Krameria erecta_**
 This is a bare-bones tutorial for running through mapping **_Galium clementis_**, look at CFP_Mapping ReadMe.md for a tutorial with more in-depth explanations.
 
 > Add the yellow flag to the right corner of your laptop ![image](https://user-images.githubusercontent.com/99222277/154882335-f33380f0-1527-4047-b2b1-972577050e7b.png)
@@ -6,7 +6,6 @@ This is a bare-bones tutorial for running through mapping **_Galium clementis_**
 ### Set a working directory.
 I chose to call my directory "CFP_Mapping"
 ```
-getwd()
 setwd("~/CFP_Mapping")
 ```
 ### Next you must install the necessary packages
@@ -38,7 +37,10 @@ library(rangeBuilder)
 
 If you ran into an issue with the package "CoordinateCleaner" and "terra" not being update, follow these steps.
 The error seems to occur due to a older verison of "terra" being installed.
->If you did run into the formentioned issue place the yellow flag on your upper right corner ![image](https://user-images.githubusercontent.com/99222277/154882335-f33380f0-1527-4047-b2b1-972577050e7b.png)
+>If you did run into the formentioned issue place the yellow flag on your upper right corner ![image](https://user-images.githubusercontent.com/99222277/155015751-fbcdd26b-d7e2-470d-a801-1e553123c8fc.png)
+
+
+
 <details><summary> CLCK ME </summary>
   <p>
     
@@ -57,7 +59,11 @@ The error seems to occur due to a older verison of "terra" being installed.
 **Step 5.** Run the following lines in order and one at a time. This may take several minutes.
 ```
 write('PATH="${RTOOLS40_HOME}\\usr\\bin;${PATH}"', file = "~/.Renviron", append = TRUE)
+```
+```
 Sys.which("make")
+```
+```
 install.packages("terra", type = "source")
 ```
 This should have updated your "terra" packages, which we can check by loading the packages
@@ -68,7 +74,11 @@ The package should be updated and no error message should appear
     
   </p>
   </details>
- > Change your flag to green once you are good to continue ![image](https://user-images.githubusercontent.com/99222277/154882595-b2448b1c-473f-4e83-9d72-1d401ebcb5e6.png)
+  
+> Change your flag to green once you are good to continue ![image](https://user-images.githubusercontent.com/99222277/155015835-3816eda1-6959-4b81-abe1-1816a605dd8c.png)
+
+
+
   ## Loading species table csv from WD folder, and assign as 'data'
 Now we need to download our list of species.
 
