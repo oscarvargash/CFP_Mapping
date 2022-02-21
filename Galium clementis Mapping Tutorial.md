@@ -1,5 +1,5 @@
-#Mapping Tutorial for **Galium clementis**
-This is a bare-bones tutorial for running through mapping **Galium clementis**, look at CFP_Mapping ReadMe.md for a tutorial with more in-depth explanations.
+# Mapping Tutorial for **_Galium clementis_**
+This is a bare-bones tutorial for running through mapping **_Galium clementis_**, look at CFP_Mapping ReadMe.md for a tutorial with more in-depth explanations.
 
 ### Set a working directory.
 I chose to call my directory "CFP_Mapping"
@@ -75,7 +75,7 @@ The following example has the "CFP_Online.xlsx" file within the BOT_499 folder
 
 This file contains a list of 100 speices that are within the California Floristic Province.
 
-**Example:(data <- read.csv("C:/Users/Cam/Desktop/BOT_499/CFP_Online.xlsx")**
+
 ```
 data <- read.csv("location of folder/CFP_Online.xlsx") 
 ```
