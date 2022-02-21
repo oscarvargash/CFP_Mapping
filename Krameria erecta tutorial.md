@@ -82,52 +82,10 @@ The package should be updated and no error message should appear
   ## Loading species table csv from WD folder, and assign as 'data'
 Now we need to download our list of species.
 
-[Species List Download](https://www.dropbox.com/scl/fi/m5rx2jjprixvcd8fjhgez/CFP_Online.xlsx?dl=0&rlkey=ypeezprkxn4cgdzmvhrlrpcy4)
+[Species List Download](https://www.dropbox.com/s/ork7fraqp3crkm1/Species_List.csv?dl=0)
 
 Once downoload,place the data set into the folder assocaioed with the directory.
-The following example has the "CFP_Online.xlsx" file within the BOT_499 folder
-
-
 This file contains a list of 100 speices that are within the California Floristic Province.
-
-
-```
-data <- read.csv("location of folder/CFP_Online.xlsx") 
-```
-## Creating a Species List
-
-**Step 1.**  Selects random sample of 100 spp., assign them to 'X'
-```
-X <- sample_n(data, 100)
-```
-**Step 2.** Write csv for 100spp.
-```
-write.csv(X, file = "100_Spp_Sample.csv")
-```
-
-**Step 3.** Loading 100 spp. data, assigning to 'Sample_Set'
-```
-Sample_Set <- read.csv("100_Spp_Sample.csv")
-```
-**Step 4.** Pull out only Genus and Spp., assign to 'Species_List"
-```
-Species_List <- c(Sample_Set$Name)
-```
-**Step 5.** How to View our Speecies list
-```
-Species_List
-```
-**Step 6.** Create CSV file for our Species list
-```
-write.csv(Species_List, file = "Species_List.csv")
-```
-
-**Step 7.** Assign value to the new csv file
-```
-file_url <- "Species_List.csv" 
-``` 
-Or download this premade list
- [Download Species List](https://www.dropbox.com/s/ork7fraqp3crkm1/Species_List.csv?dl=0)
 
 # Creating a taxon key
 
