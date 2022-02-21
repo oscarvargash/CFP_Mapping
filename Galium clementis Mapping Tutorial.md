@@ -1,6 +1,8 @@
 # Mapping Tutorial for **_Galium clementis_**
 This is a bare-bones tutorial for running through mapping **_Galium clementis_**, look at CFP_Mapping ReadMe.md for a tutorial with more in-depth explanations.
 
+> Add the yellow flag to the right corner of your laptop ![image](https://user-images.githubusercontent.com/99222277/154882335-f33380f0-1527-4047-b2b1-972577050e7b.png)
+
 ### Set a working directory.
 I chose to call my directory "CFP_Mapping"
 ```
@@ -14,7 +16,7 @@ install.packages(c("dpylr","rgbif", "purrr", "readr", "terra", "taxize", "mappro
                    "raster", "elevatr", "rgdal", "ggplot2", "ggmap", "CoordinateCleaner", 
                    "rnaturalearthdata", "rangeBuilder"))
 ```
-### Now you must load the packages into your library
+### Now we can load the packages
 ```
 library(dplyr)
 library(purrr)
@@ -32,11 +34,14 @@ library(CoordinateCleaner)
 library(rnaturalearth)
 library(rangeBuilder)
 ```
+> Change your flag to green once you are good to continue ![image](https://user-images.githubusercontent.com/99222277/154882595-b2448b1c-473f-4e83-9d72-1d401ebcb5e6.png)
+
 If you ran into an issue with the package "CoordinateCleaner" and "terra" not being update, follow these steps.
 The error seems to occur due to a older verison of "terra" being installed.
+>If you did run into the formentioned issue place the yellow flag on your upper right corner ![image](https://user-images.githubusercontent.com/99222277/154882335-f33380f0-1527-4047-b2b1-972577050e7b.png)
 <details><summary> CLCK ME </summary>
   <p>
-
+    
 **Step 1.** Download and instal [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
 
 **Step 2.** Create a txt. file named " .Renviron ".
@@ -63,6 +68,7 @@ The package should be updated and no error message should appear
     
   </p>
   </details>
+ > Change your flag to green once you are good to continue ![image](https://user-images.githubusercontent.com/99222277/154882595-b2448b1c-473f-4e83-9d72-1d401ebcb5e6.png)
   ## Loading species table csv from WD folder, and assign as 'data'
 Now we need to download our list of species.
 
@@ -195,7 +201,7 @@ hist(geodata$decimalLatitude, breaks=60)
 ### Filtering out occurrences with a Latitude beneath 1
 This step will filter out any data that is in the Southern Hemisphere, since our area of study is in the Northern Hemishere
 ```
-NLat <- geodata2 %>% filter(decimalLatitude < 1) 
+NLat <- geodata2 %>% filter(decimalLatitude < 1)  
 ```
 ### Pull out list of species names from NLAT
 ```
@@ -214,12 +220,12 @@ This will filter our data for a specific speices.
 
 Krameria_erecta<- geodata2 %>% filter(species == "Krameria erecta")
 ```
-# Plotting out uncleaned data to get coordinate frame
+Plotting out uncleaned data to get coordinate frame
 ```
 plot(Krameria_erecta$decimalLongitude, Krameria_erecta$decimalLatitude)
 ```
 
-# Building a initial base map 
+Building a initial base map 
 ```
 basemap <-  get_map(location = c(-140, -60, -32, 60), zoom = 3)
 ggmap(basemap)
@@ -230,7 +236,7 @@ ggmap(basemap)
 ggmap(basemap) + geom_point(data = Krameria_erecta, aes(x=decimalLongitude, y=decimalLatitude, color=species))
 ```
 
-# Building second base map of average range of data
+Ploting the data on to the Basemap
 ```
 basemap2 <-  get_map(location = c(-125, 20, -100, 40), zoom =5)
 ggmap(basemap2)
@@ -243,7 +249,7 @@ ggmap(basemap2) + geom_point(data = Krameria_erecta_2, aes(x=decimalLongitude, y
 ```
 
 
-# Beginning of coordinate cleaning
+## Beginning of coordinate cleaning
 ```
 flags_Krameria_erecta <- clean_coordinates(x = Krameria_erecta, 
                                         lon = "decimalLongitude", 
@@ -257,19 +263,19 @@ flags_Krameria_erecta <- clean_coordinates(x = Krameria_erecta,
                                         outliers_td = 60,
                                         outliers_size = 100)
  ```
-#Isolate the flagged obs.
+Isolate the flagged obs.
 ```
 Krameria_erecta_dat_fl <- Krameria_erecta[!flags_Krameria_erecta$.summary,]
 ```
-#Exclude flagged obs.
+Exclude flagged obs.
 ```
 Krameria_erecta_dat_cl <- Krameria_erecta[flags_Krameria_erecta$.summary,]
 ```
-#Plotting flagged and non-flagged species
+Plotting flagged and non-flagged species
 ```
 plot(flags_Krameria_erecta, lon = "decimalLongitude", lat = "decimalLatitude")
 ```
-# plotting data with flags removed over basemap2
+Plotting data with flags removed over basemap2
 ```
 ggmap(basemap2) + geom_point(data = Krameria_erecta_dat_cl, aes(x=decimalLongitude, y=decimalLatitude, color=species))
 ```
@@ -278,22 +284,23 @@ ggmap(basemap2) + geom_point(data = Krameria_erecta_dat_cl, aes(x=decimalLongitu
 ggsave(filename = "Krameria_erecta_distribuition.pdf")
 ```
 
-# Beginning on Polygon work (If you have removed any flagged occurrences replace "example" in following section with "example_dat_cl")
+# Beginning on Polygon work 
+**Step 1.** Creating the polygon
 ```
 Krameria_erecta_Poly_1 <- getDynamicAlphaHull(Krameria_erecta_dat_cl, fraction = 0.95, partCount = 4, buff = 10000, initialAlpha = 3,
                                     coordHeaders = c('decimalLongitude', 'decimalLatitude'), clipToCoast = 'terrestrial',
                                     proj = "+proj=longlat +datum=WGS84", alphaIncrement = 1, verbose = TRUE)
 ```
-# Plot polygon  
+**Step 2.** Plot the polygon  
 ```
 plot(Krameria_erecta_Poly_1[[1]], col=transparentColor('dark green', 0.5), border = NA) 
 ```
-# Plot data points onto polygon
+**Step 3.** Plot data points onto polygon
 ```
 points(Krameria_erecta_dat_cl[,c('decimalLongitude','decimalLatitude')], cex = 0.5, pch = 3)
 ```
 
-# Calculate the area of our species distribution in Kilometers
+**Step 4.** Calculate the area of our species distribution in Kilometers
 ```
 Krameria_erecta_Area <- area(Krameria_erecta_Poly_1[[1]]) /1000000
 Krameria_erecta_Area
