@@ -248,7 +248,6 @@ ggmap(basemap) + geom_point(data = Genus_speies_2, aes(x=decimalLongitude, y=dec
 ## Building second base map of average range of data.
 Changing the bounding box may be neccesary to encompass a plant species distrubtion.
 
-```
 Ploting the data on to the Basemap
 ```
 ggmap(basemap2) + geom_point(data = Krameria_erecta_2, aes(x=decimalLongitude, y=decimalLatitude, color=species))
