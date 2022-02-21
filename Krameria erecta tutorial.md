@@ -126,6 +126,9 @@ write.csv(Species_List, file = "Species_List.csv")
 ```
 file_url <- "Species_List.csv" 
 ``` 
+Or download this premade list
+ [Download Species List](https://www.dropbox.com/s/ork7fraqp3crkm1/Species_List.csv?dl=0)
+
 # Creating a taxon key
 
 This file is from The Global Biodiversity Information Facility (GBIF) and it is quite large, and contains GeoData of plant speices
