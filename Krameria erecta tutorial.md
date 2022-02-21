@@ -84,7 +84,7 @@ Now we need to download our list of species.
 
 [Species List Download](https://www.dropbox.com/s/ork7fraqp3crkm1/Species_List.csv?dl=0)
 
-Once downoload,place the data set into the folder assocaioed with the directory.
+Once downoload,place the data set into the folder associated with the directory.
 This file contains a list of 100 speices that are within the California Floristic Province.
 
 # Creating a taxon key
