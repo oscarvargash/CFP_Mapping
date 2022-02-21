@@ -270,8 +270,17 @@ plot(Krameria_erecta_Poly_1[[1]], col=transparentColor('dark green', 0.5), borde
 ```
 points(Krameria_erecta_dat_cl[,c('decimalLongitude','decimalLatitude')], cex = 0.5, pch = 3)
 ```
+**Step 4.** View the polygon on top of an interactive map using Leaflet
+```
+install.packages("leaflet")
+library(leaflet)
+PolygonMap <- leaflet()
+PolygonMap <- addTiles(PolygonMap)
+PolygonMap <- addPolygons(PolygonMap, data = Krameria_erecta_Poly_1[[1]])
+PolygonMap
+```
 
-**Step 4.** Calculate the area of our species distribution in Kilometers
+**Step 5.** Calculate the area of our species distribution in Kilometers
 ```
 Krameria_erecta_Area <- area(Krameria_erecta_Poly_1[[1]]) /1000000
 Krameria_erecta_Area
