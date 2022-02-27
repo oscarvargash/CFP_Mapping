@@ -128,8 +128,12 @@ ggmap(basemap2) + geom_point(data = Krameria_erecta_2, aes(x=decimalLongitude, y
     outliers_mtp, seems to determine how far a data point can be away from the majority of the data set and still count as being "in range"
     For instance and "mtp" value of 5 means that a point with 5 kilometers will still be considered apart of the distubtion.
     When we lower the value of "mtp" we lower what coordinate cleaner will consider within range.
-   
-     
+    
+    
+   ![MTP_Guide](https://user-images.githubusercontent.com/99222277/155865824-0b2b5ffe-8b84-4b52-a7c2-cd247696cc70.png)
+
+    
+  </p>  
   </details>
 
 ```
