@@ -300,17 +300,20 @@ ggmap(basemap2) + geom_point(data = Genus_species_example, aes(x=decimalLongitud
   <p>
 ```
 example_1 <- example %>% filter(decimalLatitude > example_LPLat, decimalLatitude < example_UPLat)
-```
-```
 LPLon <- quantile(example_1$decimalLongitude, c(0.005))
 UPLon <- quantile(example_1$decimalLongitude, c(0.995))
 example_2 <- example_1 %>% filter(decimalLongitude < example_UPLon, decimalLongitude > example_LPLon)
+```
+    
   </p>
   </details>
+    
+    
 Opitional Download
 ```
 ggsave(filename = "Genus_species_distribuition.pdf")
 ```
+    
 (Note from Alexander)Probably need to filter through occurrences manually to remove any outliers remaining
 
 # Beginning on Polygon work
@@ -323,7 +326,7 @@ Genus_species_Poly_1 <- getDynamicAlphaHull(Genus_species_dat_cl, fraction = 0.9
 ```
 Step 1. Plot polygon  
 
-**Example (
+
 ```
 plot(Genus_species_Poly_1[[1]], col=transparentColor('dark green', 0.5), border = NA) 
 ```
