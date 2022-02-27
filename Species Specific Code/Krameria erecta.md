@@ -78,119 +78,19 @@ The package should be updated and no error message should appear
 > Change your flag to green once you are good to continue ![image](https://user-images.githubusercontent.com/99222277/155015835-3816eda1-6959-4b81-abe1-1816a605dd8c.png)
 
 
-
-  ## Loading species table kist
-Now we need to download our list of species.
-
-[Species List Download](https://www.dropbox.com/s/ork7fraqp3crkm1/Species_List.csv?dl=0)
-
-Once downoload,place the data set into the folder associated with the directory.
-This file contains a list of 100 speices that are within the California Floristic Province.
-
 # Creating a taxon key
+[Species Geodata](https://drive.google.com/drive/u/0/folders/1C3myAw-06w_DJxgtrdG5K17l_2OGNN94)
 
-This file is from The Global Biodiversity Information Facility (GBIF) and it is quite large, and contains GeoData of plant speices
-
-
-[GBIF Data Download](https://www.dropbox.com/s/nef1p0dmkakcvtr/0000436-210914110416597.csv?dl=0)
-
-This download contains a file named "0000436-210914110416597.csv"
+This download contains a file named "Krameria_erecta_geo.csv"
 
 After completeing the download, place the data set into the folder assocaioed with the directory. So that you can access it through R.
 ```
-data <- read.csv("0000436-210914110416597.csv") 
+data <- read.csv("Krameria_erecta_geo.csv") 
 ```
-Assign value to our new gbif file
-```
-Taxon_Keys <- read.csv("0000436-210914110416597.csv", sep = "\t")
-```
-Sort then tally by species
-```
-Taxon_Keys_Spp <- c(Taxon_Keys$species)
-Taxon_Keys_Spp_Tally <- Taxon_Keys_Spp %>% group_by(species) %>% tally()
-```
-If a console message pops up with "Error in tally(.) : could not find function "tally"." Press "Click Me" and follow the steps.
-<details><summary>CLICK ME</summary>
-<p>
- 
-**Step 1.** Reset R.
-
-![Rest_R](https://user-images.githubusercontent.com/99222277/153778610-77351921-c65c-48a7-bbe5-70b3447fb129.png)
- 
-**Step 2.** Remove packages "rlang" and "dplyr"
- ```
-remove.packages("rlang")
-remove.packages("dplyr")
-```
-**Step 3.** Re-install the packages.
-```
-install.packages("rlang")
-install.packages("dplyr")
-```
-**Step 4.** Load Library
-```
-library(rlang)
-library(dplyr)
-```
-**Step 5.** Sort by tally
-```
-Taxon_Keys_Spp <- c(Taxon_Keys$species)
-Taxon_Keys_Spp_Tally <- Taxon_Keys_Spp %>% group_by(species) %>% tally()
-```
-
-</p>
-</details>
-
-### Grouping species
-This will create a list of our filtered species
-```
-Taxon_Keys_Species_List <- Taxon_Keys %>% group_by(species) %>% tally()
-```
-## Filtering out Lat and Long 
-
-Filtering out any invalid Latitude values
-
-```
-geodata <- Taxon_Keys %>% filter(!is.na(decimalLatitude)) 
-```
-Filtering out any invaild Longitude Value
-
-```
-geodata2 <- geodata %>% filter(!is.na(decimalLongitude))
-```
-### Group species names from geodata2 
-```
-geodata2_Species_List <- geodata2 %>% group_by(species) %>% tally()
-geodata2_Species_List
-```
-### Latitude plotting
-```
-geodata2$decimalLatitude
-plot(geodata$decimalLatitude)
-hist(geodata$decimalLatitude, breaks=60)
-```
-### Filtering out occurrences with a Latitude beneath 1
-This step will filter out any data that is in the Southern Hemisphere, since our area of study is in the Northern Hemishere
-```
-NLat <- geodata2 %>% filter(decimalLatitude < 1)  
-```
-### Pull out list of species names from NLAT
-```
-Species_NLat <- NLat %>% group_by(species) %>% tally()
-```
-### Plot Longitude & Latitude data together
-```
-plot(geodata2$decimalLongitude, geodata2$decimalLatitude)
-```
+"Krameria_erecta <- data
 
 # Beginning of individual spp cleaning
 
-Isolate individual species occurrences (replace example & "Genus species" where appropriate)
-This will filter our data for a specific speices.
-```
-
-Krameria_erecta<- geodata2 %>% filter(species == "Krameria erecta")
-```
 Plotting out uncleaned data to get coordinate frame
 ```
 plot(Krameria_erecta$decimalLongitude, Krameria_erecta$decimalLatitude)
