@@ -78,7 +78,7 @@ The package should be updated and no error message should appear
 > Change your flag to green once you are good to continue ![image](https://user-images.githubusercontent.com/99222277/155015835-3816eda1-6959-4b81-abe1-1816a605dd8c.png)
 
 
-# Creating a taxon key
+# Downloading the Dataset
 [Species Geodata](https://drive.google.com/drive/u/0/folders/1C3myAw-06w_DJxgtrdG5K17l_2OGNN94)
 
 This download contains a file named "Krameria_erecta_geo.csv"
@@ -87,6 +87,7 @@ After completeing the download, place the data set into the folder assocaioed wi
 ```
 data <- read.csv("Krameria_erecta_geo.csv") 
 ```
+Set Krameria erecta as an variable
 ```
 "Krameria_erecta <- data
 ```
