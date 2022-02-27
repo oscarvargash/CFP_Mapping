@@ -87,9 +87,10 @@ After completeing the download, place the data set into the folder assocaioed wi
 ```
 data <- read.csv("Krameria_erecta_geo.csv") 
 ```
+```
 "Krameria_erecta <- data
-
-# Beginning of individual spp cleaning
+```
+# Ploting our data
 
 Plotting out uncleaned data to get coordinate frame
 ```
