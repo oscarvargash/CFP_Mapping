@@ -92,7 +92,7 @@ data <- read.csv("Krameria_erecta_geo.csv")
 ```
 Set Krameria erecta as an variable
 ```
-"Krameria_erecta <- data
+Krameria_erecta <- data
 ```
 Plotting out uncleaned data to get coordinate frame
 ```
@@ -107,7 +107,6 @@ ggmap(basemap)
 Plot data over a general basemap
 ```
 ggmap(basemap) + geom_point(data = Krameria_erecta, aes(x=decimalLongitude, y=decimalLatitude, color=species))
-ggmap(basemap)
 ```
 
 Creating a basemap of CFP
