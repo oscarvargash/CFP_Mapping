@@ -78,7 +78,7 @@ The package should be updated and no error message should appear
 > Change your flag to green once you are good to continue ![image](https://user-images.githubusercontent.com/99222277/155015835-3816eda1-6959-4b81-abe1-1816a605dd8c.png)
 
 
-# Downloading the Dataset
+# Downloading the Dataset and Ploting 
 
 >Change back to yellow flag for this section ![image](https://user-images.githubusercontent.com/99222277/154882335-f33380f0-1527-4047-b2b1-972577050e7b.png)
 
@@ -94,8 +94,6 @@ Set Krameria erecta as an variable
 ```
 "Krameria_erecta <- data
 ```
-# Ploting our data
-
 Plotting out uncleaned data to get coordinate frame
 ```
 plot(Krameria_erecta$decimalLongitude, Krameria_erecta$decimalLatitude)
@@ -106,20 +104,20 @@ Building a initial base map
 basemap <-  get_map(location = c(-140, -60, -32, 60), zoom = 3)
 ggmap(basemap)
 ```
-
-# plot data over basemap of CFP
+Plot data over a general basemap
 ```
 ggmap(basemap) + geom_point(data = Krameria_erecta, aes(x=decimalLongitude, y=decimalLatitude, color=species))
+ggmap(basemap)
 ```
 
-Ploting the data on to the Basemap
+Creating a basemap of CFP
 ```
 basemap2 <-  get_map(location = c(-125, 20, -100, 40), zoom =5)
 ggmap(basemap2)
 
 ```
  > Place the green flag on the top corner of your labtop if you are ready to continue ![image](https://user-images.githubusercontent.com/99222277/154882595-b2448b1c-473f-4e83-9d72-1d401ebcb5e6.png)
-# plot data over basemap2
+# Ploting our data onto the basemap
 > Change the flag back to yellow for this section ![image](https://user-images.githubusercontent.com/99222277/154882335-f33380f0-1527-4047-b2b1-972577050e7b.png)
 ```
 ggmap(basemap2) + geom_point(data = Krameria_erecta_2, aes(x=decimalLongitude, y=decimalLatitude, color=species))
