@@ -109,7 +109,7 @@ Plot data over a general basemap
 ggmap(basemap) + geom_point(data = Krameria_erecta, aes(x=decimalLongitude, y=decimalLatitude, color=species))
 ```
 
-Creating a basemap of CFP
+Creating a basemap of for our spcies
 ```
 basemap2 <-  get_map(location = c(-125, 20, -100, 40), zoom =5)
 ggmap(basemap2)
