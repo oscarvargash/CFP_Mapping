@@ -172,6 +172,7 @@ ggsave(filename = "Krameria_erecta_distribuition.pdf")
 > Place the green flag on the top corner of your labtop if you are ready to continue ![image](https://user-images.githubusercontent.com/99222277/154882595-b2448b1c-473f-4e83-9d72-1d401ebcb5e6.png)
 
 # Beginning on Polygon work 
+> Change the flag back to yellow for this section ![image](https://user-images.githubusercontent.com/99222277/154882335-f33380f0-1527-4047-b2b1-972577050e7b.png)
 **Step 1.** Creating the polygon
 ```
 Krameria_erecta_Poly_1 <- getDynamicAlphaHull(Krameria_erecta_dat_cl, fraction = 0.95, partCount = 4, buff = 10000, initialAlpha = 3,
@@ -206,3 +207,4 @@ Krameria_erecta_Area
 ```
 save(Krmaeria_erecta_Poly_1, file "Krameria_erecta_Poly.Rdata")
 ```
+> Place the green flag on the top corner of your labtop if you have finsihed this tutorial ![image](https://user-images.githubusercontent.com/99222277/154882595-b2448b1c-473f-4e83-9d72-1d401ebcb5e6.png)
