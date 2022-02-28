@@ -79,6 +79,9 @@ The package should be updated and no error message should appear
 
 
 # Downloading the Dataset
+
+>Change back to yellow flag for this section ![image](https://user-images.githubusercontent.com/99222277/154882335-f33380f0-1527-4047-b2b1-972577050e7b.png)
+
 [Species Geodata](https://drive.google.com/drive/u/0/folders/1C3myAw-06w_DJxgtrdG5K17l_2OGNN94)
 
 This download contains a file named "Krameria_erecta_geo.csv"
@@ -115,12 +118,12 @@ basemap2 <-  get_map(location = c(-125, 20, -100, 40), zoom =5)
 ggmap(basemap2)
 
 ```
-
+ > Place the green flag on the top corner of your labtop if you are ready to continue ![image](https://user-images.githubusercontent.com/99222277/154882595-b2448b1c-473f-4e83-9d72-1d401ebcb5e6.png)
 # plot data over basemap2
+> Change the flag back to yellow for this section ![image](https://user-images.githubusercontent.com/99222277/154882335-f33380f0-1527-4047-b2b1-972577050e7b.png)
 ```
 ggmap(basemap2) + geom_point(data = Krameria_erecta_2, aes(x=decimalLongitude, y=decimalLatitude, color=species))
 ```
-
 
 ## Beginning of coordinate cleaning
 <details><summary> How coordinate cleaning works </summary>
@@ -169,6 +172,7 @@ ggmap(basemap2) + geom_point(data = Krameria_erecta_dat_cl, aes(x=decimalLongitu
 ```
 ggsave(filename = "Krameria_erecta_distribuition.pdf")
 ```
+> Place the green flag on the top corner of your labtop if you are ready to continue ![image](https://user-images.githubusercontent.com/99222277/154882595-b2448b1c-473f-4e83-9d72-1d401ebcb5e6.png)
 
 # Beginning on Polygon work 
 **Step 1.** Creating the polygon
