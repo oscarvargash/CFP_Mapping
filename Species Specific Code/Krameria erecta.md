@@ -119,7 +119,7 @@ ggmap(basemap2)
 # Ploting our data onto the basemap
 > Change the flag back to yellow for this section ![image](https://user-images.githubusercontent.com/99222277/154882335-f33380f0-1527-4047-b2b1-972577050e7b.png)
 ```
-ggmap(basemap2) + geom_point(data = Krameria_erecta_2, aes(x=decimalLongitude, y=decimalLatitude, color=species))
+ggmap(basemap2) + geom_point(data = Krameria_erecta, aes(x=decimalLongitude, y=decimalLatitude, color=species))
 ```
 
 ## Beginning of coordinate cleaning
