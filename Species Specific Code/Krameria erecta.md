@@ -173,6 +173,8 @@ ggsave(filename = "Krameria_erecta_distribuition.pdf")
 
 # Beginning on Polygon work 
 > Change the flag back to yellow for this section ![image](https://user-images.githubusercontent.com/99222277/154882335-f33380f0-1527-4047-b2b1-972577050e7b.png)
+
+
 **Step 1.** Creating the polygon
 ```
 Krameria_erecta_Poly_1 <- getDynamicAlphaHull(Krameria_erecta_dat_cl, fraction = 0.95, partCount = 4, buff = 10000, initialAlpha = 3,
