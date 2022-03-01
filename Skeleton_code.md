@@ -296,17 +296,16 @@ Plotting data with flags removed over basemap2
 ggmap(basemap2) + geom_point(data = Genus_species_example, aes(x=decimalLongitude, y=decimalLatitude, color=species, size = 9))
 ```
 **More filtering if Neccesary**
-<details><summary> CLCK ME </summary>
-  <p>
+
+    
 ```
 example_1 <- example %>% filter(decimalLatitude > example_LPLat, decimalLatitude < example_UPLat)
 LPLon <- quantile(example_1$decimalLongitude, c(0.005))
 UPLon <- quantile(example_1$decimalLongitude, c(0.995))
 example_2 <- example_1 %>% filter(decimalLongitude < example_UPLon, decimalLongitude > example_LPLon)
 ```
-    
-  </p>
-  </details>
+
+
     
     
 Opitional Download
