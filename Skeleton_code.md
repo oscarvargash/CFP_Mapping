@@ -254,6 +254,13 @@ ggmap(basemap2) + geom_point(data = Krameria_erecta_2, aes(x=decimalLongitude, y
 ```
 ## Beginning of coordinate cleaning
 
+When are are looking at a plant disturbiton we should reference a site ejepson or eflora to gain a better understanding of the plant species in questions distrubtion.
+
+[Jepson](https://ucjeps.berkeley.edu/eflora/)
+
+[eFlora](http://www.efloras.org/)
+
+
 Example: 
 ![Example_Flagged](https://user-images.githubusercontent.com/99222277/153942636-3dc69b93-e386-4b8b-9015-d2736e7deb8c.png)
 
