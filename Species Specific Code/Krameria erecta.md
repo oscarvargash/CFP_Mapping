@@ -80,7 +80,9 @@ The package should be updated and no error message should appear
 
 >Change back to yellow flag for this section ![image](https://user-images.githubusercontent.com/99222277/154882335-f33380f0-1527-4047-b2b1-972577050e7b.png)
 
-[Species Geodata](https://drive.google.com/drive/u/0/folders/1C3myAw-06w_DJxgtrdG5K17l_2OGNN94)
+We need to download geodata which can be found in the link below, make sure to download as an .csv
+
+[Species Geodata](https://docs.google.com/spreadsheets/d/1LH-fztyhcwczeVnYP1qa8u-EE7QSFu6j1PMySidJX_s/edit#gid=1152201126)
 
 This download contains a file named "Krameria_erecta_geo.csv"
 
