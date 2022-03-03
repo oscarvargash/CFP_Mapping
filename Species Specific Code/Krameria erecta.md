@@ -206,3 +206,5 @@ Krameria_erecta_Area
 save(Krameria_erecta_Poly_1,file = "Krameria_erecta_Poly.Rdata")
 ```
 > Place the green flag on the top corner of your labtop if you have finsihed this tutorial ![image](https://user-images.githubusercontent.com/99222277/154882595-b2448b1c-473f-4e83-9d72-1d401ebcb5e6.png)
+
+**Congratulations you have successfully created a plant species distribution map!**
