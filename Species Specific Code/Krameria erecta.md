@@ -88,6 +88,8 @@ After completeing the download, place the data set into the folder assocaioed wi
 ```
 data <- read.csv("Krameria_erecta_geo.csv") 
 ```
+the file may be a .xlsx, if so just change .csv to .xlsx in the line above
+
 Set Krameria erecta as an variable
 ```
 Krameria_erecta <- data
