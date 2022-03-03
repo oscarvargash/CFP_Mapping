@@ -13,7 +13,7 @@ If you have any issues installing and loading these packages, you may need to in
 ```
 install.packages(c("dpylr","rgbif", "purrr", "readr", "mapproj", 
                    "raster", "elevatr", "rgdal", "ggplot2", "ggmap", "CoordinateCleaner", 
-                   "rnaturalearthdata", "rangeBuilder"))
+                   "rnaturalearthdata", "rangeBuilder","leaflet"))
 ```
 ### Now we can load the packages
 ```
