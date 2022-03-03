@@ -11,7 +11,7 @@ setwd("~/CFP_Mapping")
 ### Next you must install the necessary packages
 If you have any issues installing and loading these packages, you may need to install and run RTools. An in depth tutorial for this is located in ReadMe.md
 ```
-install.packages(c("dpylr","rgbif", "purrr", "readr", "mapproj", 
+install.packages(c("dpylr", "purrr", "readr", "mapproj", 
                    "raster", "elevatr", "rgdal", "ggplot2", "ggmap", "CoordinateCleaner", 
                    "rnaturalearthdata", "rangeBuilder","leaflet"))
 ```
