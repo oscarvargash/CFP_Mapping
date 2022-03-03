@@ -11,7 +11,7 @@ setwd("~/CFP_Mapping")
 ### Next you must install the necessary packages
 If you have any issues installing and loading these packages, you may need to install and run RTools. An in depth tutorial for this is located in ReadMe.md
 ```
-install.packages(c("dpylr","rgbif", "purrr", "readr", "terra", "taxize", "mapproj", 
+install.packages(c("dpylr","rgbif", "purrr", "readr", "mapproj", 
                    "raster", "elevatr", "rgdal", "ggplot2", "ggmap", "CoordinateCleaner", 
                    "rnaturalearthdata", "rangeBuilder"))
 ```
@@ -20,9 +20,6 @@ install.packages(c("dpylr","rgbif", "purrr", "readr", "terra", "taxize", "mappro
 library(dplyr)
 library(purrr)
 library(readr)  
-library(magrittr) 
-library(rgbif) 
-library(taxize) 
 library(mapproj)
 library(raster)
 library(elevatr)
@@ -32,6 +29,7 @@ library(ggmap)
 library(CoordinateCleaner)
 library(rnaturalearth)
 library(rangeBuilder)
+library(leaflet)
 ```
 > Change your flag to green once you are good to continue ![image](https://user-images.githubusercontent.com/99222277/154882595-b2448b1c-473f-4e83-9d72-1d401ebcb5e6.png)
 
@@ -191,8 +189,6 @@ points(Krameria_erecta_dat_cl[,c('decimalLongitude','decimalLatitude')], cex = 0
 ```
 **Step 4.** View the polygon on top of an interactive map using Leaflet
 ```
-install.packages("leaflet")
-library(leaflet)
 PolygonMap <- leaflet()
 PolygonMap <- addTiles(PolygonMap)
 PolygonMap <- addPolygons(PolygonMap, data = Krameria_erecta_Poly_1[[1]])
@@ -207,6 +203,6 @@ Krameria_erecta_Area
 **Step 6.** Saving to polygon
 
 ```
-save(Krmaeria_erecta_Poly_1, file "Krameria_erecta_Poly.Rdata")
+save(Krameria_erecta_Poly_1,file = "Krameria_erecta_Poly.Rdata")
 ```
 > Place the green flag on the top corner of your labtop if you have finsihed this tutorial ![image](https://user-images.githubusercontent.com/99222277/154882595-b2448b1c-473f-4e83-9d72-1d401ebcb5e6.png)
