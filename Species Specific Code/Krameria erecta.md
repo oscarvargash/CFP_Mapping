@@ -86,11 +86,12 @@ We need to download geodata which can be found in the link below, make sure to d
 
 This download contains a file named "Krameria_erecta_geo.csv"
 
-After completeing the download, place the data set into the folder assocaioed with the directory. So that you can access it through R.
+After completing the download, place the data set into the folder associated with the directory. So that you can access it through R.
+
+The name of may vary, if so just replace "krameria_erecta_geo.csv" with the name of the file located on your computer.
 ```
 data <- read.csv("Krameria_erecta_geo.csv") 
 ```
-the file may be a .xlsx, if so just change .csv to .xlsx in the line above
 
 Set Krameria erecta as an variable
 ```
