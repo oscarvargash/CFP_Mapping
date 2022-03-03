@@ -44,7 +44,7 @@ The error seems to occur due to a older verison of "terra" being installed.
     
 **Step 1.** Download and instal [RTools](https://cran.r-project.org/bin/windows/Rtools/rtools40.html)
 
-**Step 2.** Create a txt. file named " .Renviron ".
+**Step 2.** Go to documents and create a txt. file named " .Renviron ".
 
 **Step 3.** Save the file to your documents.
 
