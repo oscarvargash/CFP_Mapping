@@ -167,7 +167,7 @@ Plotting data with flags removed over basemap2
 ```
 ggmap(basemap2) + geom_point(data = Krameria_erecta_dat_cl, aes(x=decimalLongitude, y=decimalLatitude, color=species))
 ```
-# If you'd like to download the species distribution map directly
+If you'd like to download the species distribution map directly
 ```
 ggsave(filename = "Krameria_erecta_distribuition.pdf")
 ```
