@@ -1,5 +1,5 @@
 # Mapping Tutorial for **_Krameria erecta_**
-This is a bare-bones tutorial for running through mapping **_Galium clementis_**, look at CFP_Mapping ReadMe.md for a tutorial with more in-depth explanations.
+This is a bare-bones tutorial for running through mapping **_Krameria erecta_**, look at CFP_Mapping ReadMe.md for a tutorial with more in-depth explanations.
 
 > Add the yellow flag to the right corner of your laptop ![image](https://user-images.githubusercontent.com/99222277/154882335-f33380f0-1527-4047-b2b1-972577050e7b.png)
 
