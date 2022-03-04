@@ -81,7 +81,7 @@ The package should be updated and no error message should appear
 
 We need to download geodata which can be found in the link below, make sure to download as an .csv
 
-[Species Geodata](https://docs.google.com/spreadsheets/d/1LH-fztyhcwczeVnYP1qa8u-EE7QSFu6j1PMySidJX_s/edit#gid=1152201126)
+[Species Geodata](https://drive.google.com/file/d/1xfigPDGfYXCOPl-rku0k_K_StACN3dtj/view?usp=sharing)
 
 This download contains a file named "Krameria_erecta_geo.csv"
 
